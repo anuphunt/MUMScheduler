@@ -25,9 +25,9 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/addstudent", method = RequestMethod.POST)
-    public String addStudent(@ModelAttribute Student student) {
+    public String addStudent(@ModelAttribute("student") Student student) {
         studentService.add(student);
-        return "redirect:/students/allstudents";
+        return "redirect:/students/all";
     }
 
     @GetMapping("/all")
