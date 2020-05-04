@@ -38,11 +38,8 @@ public class StudentDaoImpl implements IStudentDao {
 
     @Override
     public Student update(Student student, String id) {
-        Optional<Student> student1 = repository.findById(id);
-
-        if(student1.get().getId()==id){
-            return repository.save(student);
-        }
-        return null;
+       if(id!=null)
+           return repository.save(student);
+       else return null;
     }
 }
