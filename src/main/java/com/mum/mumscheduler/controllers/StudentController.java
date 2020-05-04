@@ -48,7 +48,7 @@ public class StudentController {
                                 BindingResult result, Model model) {
         if (result.hasErrors()) {
             student.setId(id);
-            return "update-user";
+            return "student/studenteditform";
         }
         studentService.update(student, id);
         model.addAttribute("student", studentService.getAllStudents());

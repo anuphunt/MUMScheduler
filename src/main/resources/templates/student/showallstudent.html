@@ -21,7 +21,7 @@
 <table class="table" align="center">
     <thead>
     <tr>
-        <th> Id </th>
+        <th> Student Id </th>
         <th> Name </th>
         <th> Email </th>
         <th> Address </th>
@@ -35,12 +35,12 @@
     </tr>
     <tr th:each="student : ${students}">
         <td><span th:text="${student.id}"> Id </span></td>
-        <td><span th:text="${student.id}"> Name </span></td>
+        <td><span th:text="${student.name}"> Name </span></td>
         <td><span th:text="${student.email}"> Email </span></td>
         <td><span th:text="${student.address}"> Address </span></td>
         <td><span th:text="${student.entry}"> Entry </span></td>
-        <td><a th:href="@{/editstudent/{id}(id=${student.id})}">Edit</a></td>
-        <td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a></td>
+        <td><a th:href="@{/students/editstudent/{id}(id=${student.id})}">Edit</a></td>
+        <td><a th:href="@{/students/delete/{id}(id=${student.id})}">Delete</a></td>
     </tr>
     </tbody>
 </table>
