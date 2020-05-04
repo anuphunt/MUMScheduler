@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MUMShed</title>
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        </head>
+<body>
+<div class="container">
+    <h1 class="text-center">Show All Students </h1>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+<table class="table" align="center">
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> Name </th>
+        <th> Email </th>
+        <th> Address </th>
+        <th> Entry </th>
+        <th> Actions </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${students.empty}">
+        <td colspan="2"> No student </td>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td><span th:text="${student.id}"> Id </span></td>
+        <td><span th:text="${student.id}"> Name </span></td>
+        <td><span th:text="${student.email}"> Email </span></td>
+        <td><span th:text="${student.address}"> Address </span></td>
+        <td><span th:text="${student.entry}"> Entry </span></td>
+        <td><a th:href="@{/editstudent/{id}(id=${student.id})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
