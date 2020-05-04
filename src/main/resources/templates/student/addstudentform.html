@@ -15,7 +15,7 @@
     <div class="col-md-4">
 
 <div class="form-group">
-<form action="#" th:action="@{/addstudent}" th:object="${student}" method="post">
+<form action="#" th:action="@{/students/addstudent}" th:object="${student}" method="post">
     <label>Id:</label><input type="text" class="form-control" th:field="*{id}"><br>
     <label>Name:</label><input type="text" class="form-control"  th:field="*{name}"><br>
     <label>Email:</label><input type="email" class="form-control" th:field="*{email}"><br>
