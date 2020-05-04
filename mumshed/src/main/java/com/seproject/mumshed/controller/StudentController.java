@@ -51,7 +51,7 @@ public class StudentController {
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
             student.setId(id);
-            return "update-user";
+            return "student/studenteditform";
         }
 
         studentrepository.save(student);
