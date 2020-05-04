@@ -1,3 +1,2 @@
 # MUMScheduler
-
-1) Test
+#Common Features (Course Scheduling, Student Registration)
