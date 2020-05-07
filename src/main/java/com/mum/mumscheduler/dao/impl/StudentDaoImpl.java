@@ -2,7 +2,10 @@ package com.mum.mumscheduler.dao.impl;
 
 import com.mum.mumscheduler.dao.IStudentDao;
 import com.mum.mumscheduler.models.Student;
+import com.mum.mumscheduler.models.User;
 import com.mum.mumscheduler.respository.StudentRepository;
+import com.mum.mumscheduler.respository.UserRepository;
+import com.mum.mumscheduler.utilities.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,33 +16,42 @@ import java.util.Optional;
 public class StudentDaoImpl implements IStudentDao {
 
     @Autowired
-    private StudentRepository repository;
+    private StudentRepository studentRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public void delete(String id) {
-        repository.deleteById(id);
+        studentRepository.deleteById(id);
+        userRepository.deleteById(id);
     }
 
     @Override
     public Optional<Student> getStudentById(String id) {
-        return repository.findById(id);
+        return studentRepository.findById(id);
     }
 
     @Override
     public List<Student> getAllStudents() {
-        return repository.findAll();
+        return studentRepository.findAll();
     }
 
     @Override
     public Student add(Student student) {
-        return repository.save(student);
+        student = studentRepository.save(student);
+        userRepository.save(new User(student.getId(), student.getUsername(), student.getPassword(), UserRole.STUDENT));
+        return student;
     }
 
 
     @Override
     public Student update(Student student, String id) {
-       if(id!=null)
-           return repository.save(student);
+       if(id!=null){
+           Student student1 = studentRepository.save(student);
+           userRepository.save(new User(student.getId(), student.getUsername(), student.getPassword(), UserRole.STUDENT));
+           return student1;
+       }
        else return null;
     }
 }

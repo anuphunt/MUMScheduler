@@ -23,7 +23,10 @@
                         <li th:each="prereq: ${prerequisites}">
                             <div class ="ui checkbox">
                                 <input type ="checkbox" th:field="*{prerequisites}" th:value="${prereq}">
-                                <label th:text="${prereq}"></label>
+                                <label
+                                    th:for="${#ids.prev('prerequisites')}"
+                                    th:text="${prereq}"></label>
+<!--                                <label th:text="${prereq}"></label>-->
                             </div>
                         </li>
                     </ul>
