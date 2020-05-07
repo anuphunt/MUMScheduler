@@ -3,13 +3,10 @@
 <head></head>
 <body>
     <h1>Welcome to MUM Scheduler</h1>
-    <h1 th:inline = "text"> Hello [[${#httpServletRequest.remoteUser}]]!</h1>
     <a href="/students/addstudent">Add a student</a>
     <br>
     <a href="/students/all">Show all students</a>
-
-
-    <form th:action="@{/logout}" method = "post">
-        <input type ="submit" value = "Sign Out" />
-    </form>
+    <br>
+    <br>
+    <a href="/faculty/all">Show all faculties</a>
 </body>
