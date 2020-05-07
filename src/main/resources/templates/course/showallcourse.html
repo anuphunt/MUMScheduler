@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>MUMShed</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+<body>
+<div class="container">
+    <h1 class="text-center">Show All Courses </h1>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <table class="table" align="center">
+                <thead>
+                <tr>
+                    <th> CourseId </th>
+                    <th> CourseName </th>
+                    <th> Prerequisites </th>
+                    <th> StartDate </th>
+                    <th> EndDate </th>
+                    <th> Actions </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${courses.empty}">
+                    <td colspan="2"> No Course </td>
+                </tr>
+                <tr th:each="course : ${courses}">
+                    <td><span th:text="${course.courseId}"> courseId </span></td>
+                    <td><span th:text="${course.courseName}"> courseName </span></td>
+                    <td><span th:text="${course.prerequisites}"> prerequisites </span></td>
+
+                    <td><span th:date="${course.startDate}"> Start Date </span></td>
+                    <td><span th:date="${course.endDate}"> End Date </span></td>
+                    <td><a th:href="@{/courses/editcourse/{id}(id=${course.courseId})}">Edit</a></td>
+                    <td><a th:href="@{/courses/delete/{id}(id=${course.courseId})}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
