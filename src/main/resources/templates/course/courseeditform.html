@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MUMShed</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Add Courses Form</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <form action="#" th:action="@{/courses/updatecourse/{id}(id=${course.courseId})}" th:object="${course}" method="post">
+                    <label>CourseId:</label><input type="text" class="form-control" th:field="*{courseId}"><br>
+                    <label>CourseName:</label><input type="text" class="form-control"  th:field="*{courseName}"><br>
+                    <label>Prerequisites:</label><br>
+<!--                    <input type="checkbox" name="prereq" th:value="WAP" th:field="*{prereq}">WAP<br>-->
+                    <input type="checkbox" th:field="*{prerequisites}" th:value="WAP" />
+<!--                    <input type="checkbox" name="prreq" value="SE">SE<br>-->
+
+                    <label>Block:</label><br>
+                    <label>Start-Date:</label>
+
+                    <input type="date" id="startDate" name="startDate" th:field="*{startDate}">
+                    <label>End-Date:</label>
+                    <input type="date" id="endDate" name="endDate" th:field="*{endDate}"><br><br>
+
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; <input type="submit" value="Submit" class="btn btn-primary margin-left:auto;margin-right:auto;display:block;margin-top:22%;margin-bottom:0%">
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="reset" value="Reset" class="btn btn-success">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
