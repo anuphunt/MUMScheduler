@@ -17,6 +17,8 @@
             <div class="form-group">
                 <form action="#" th:action="@{/faculty/addfaculty}" th:object="${faculty}" method="post">
                     <label>Faculty ID:</label><input type="text" class="form-control" th:field="*{facultyId}"><br>
+                    <label>Username:</label><input type="text" class="form-control" th:field="*{username}"><br>
+                    <label>Password:</label><input type="text" class="form-control" th:field="*{password}"><br>
                     <label>Faculty Name:</label><input type="text" class="form-control" th:field="*{name}"><br>
                     <label>Join Date:</label><input type="date" class="form-control" th:field="*{joinedDate}"><br>
                     <input type="submit" value="Save" class="btn btn-primary"> &nbsp;<input type="reset" value="Reset" class="btn btn-success">

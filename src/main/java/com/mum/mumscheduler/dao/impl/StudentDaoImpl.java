@@ -39,17 +39,16 @@ public class StudentDaoImpl implements IStudentDao {
 
     @Override
     public Student add(Student student) {
-        student = studentRepository.save(student);
-        userRepository.save(new User(student.getId(), student.getUsername(), student.getPassword(), UserRole.STUDENT));
+        Student student1 = studentRepository.save(student);
+        userRepository.save(new User(student1.getId(), student1.getUsername(), student1.getPassword(), UserRole.STUDENT));
         return student;
     }
-
 
     @Override
     public Student update(Student student, String id) {
        if(id!=null){
            Student student1 = studentRepository.save(student);
-           userRepository.save(new User(student.getId(), student.getUsername(), student.getPassword(), UserRole.STUDENT));
+           userRepository.save(new User(student1.getId(), student1.getUsername(), student1.getPassword(), UserRole.STUDENT));
            return student1;
        }
        else return null;
