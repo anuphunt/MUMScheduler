@@ -19,6 +19,11 @@ public class AdminController {
     @Autowired
     private IAdminService adminService;
 
+    @GetMapping("/dashboard")
+    public String getAdminDashboard(){
+        return "admin/admin-dashboard";
+    }
+
     @GetMapping("/addadmin")
     public String getAddAdminForm(Model model) {
         Admin admin=new Admin();

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+    <script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
+</head>
+<body>
+    <div class="app-sidebar sidebar-shadow" th:fragment="adminsidebar">
+        <div class="app-header__logo">
+            <div class="logo-src"></div>
+            <div class="header__pane ml-auto">
+                <div>
+                    <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="app-header__mobile-menu">
+            <div>
+                <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="app-header__menu">
+            <span>
+                <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                    <span class="btn-icon-wrapper">
+                        <i class="fa fa-ellipsis-v fa-w-6"></i>
+                    </span>
+                </button>
+            </span>
+        </div>
+        <div class="scrollbar-sidebar">
+            <div class="app-sidebar__inner">
+                <ul class="vertical-nav-menu">
+                    <li class="app-sidebar__heading">Faculties</li>
+                    <li>
+                        <a href="#" th:href="@{/faculty/addfaculty}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-eyedropper"></i>
+                            Add new faculty
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" th:href="@{/faculty/all}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-albums"></i>
+                            View All Faculties
+                        </a>
+                    </li>
+                    <li class="app-sidebar__heading">Students</li>
+                    <li>
+                        <a href = "#" th:href="@{/students/addstudent}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-eyedropper"></i>
+                            Add new student
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" th:href = "@{/students/all}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-albums"></i>
+                            View All Students
+                        </a>
+                    </li>
+                    <li class="app-sidebar__heading">Courses</li>
+                    <li>
+                        <a href="#" th:href = "@{/courses/addcourse}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-eyedropper"></i>
+                            Add new course
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" th:href ="@{/courses/all}"  class="mm-active">
+                            <i class="metismenu-icon pe-7s-albums"></i>
+                            View all courses
+                        </a>
+                    </li>
+                    <li class="app-sidebar__heading">BLocks</li>
+                    <li>
+                        <a href="#" th:href ="@{/block/addblock}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-eyedropper"></i>
+                            Add new block
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" th:href ="@{/block/all}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-albums"></i>
+                            View all blocks
+                        </a>
+                    </li>
+                    <li class="app-sidebar__heading">Entry</li>
+                    <li>
+                        <a href="#" class="mm-active">
+                            <i class="metismenu-icon pe-7s-eyedropper"></i>
+                            Add new entry
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mm-active">
+                            <i class="metismenu-icon pe-7s-albums"></i>
+                            View all entries
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
