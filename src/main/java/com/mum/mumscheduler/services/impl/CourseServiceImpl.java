@@ -1,11 +1,8 @@
 package com.mum.mumscheduler.services.impl;
 
 import com.mum.mumscheduler.dao.ICourseDao;
-import com.mum.mumscheduler.dao.IStudentDao;
 import com.mum.mumscheduler.models.Course;
-import com.mum.mumscheduler.models.Student;
 import com.mum.mumscheduler.services.ICourseService;
-import com.mum.mumscheduler.services.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

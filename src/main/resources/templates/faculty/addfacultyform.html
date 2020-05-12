@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MUMShed</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center">Add New Faculty</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <form action="#" th:action="@{/faculty/addfaculty}" th:object="${faculty}" method="post">
+                    <label>Faculty ID:</label><input type="text" class="form-control" th:field="*{facultyId}"><br>
+                    <label>Username:</label><input type="text" class="form-control" th:field="*{username}"><br>
+                    <label>Password:</label><input type="text" class="form-control" th:field="*{password}"><br>
+                    <label>Faculty Name:</label><input type="text" class="form-control" th:field="*{name}"><br>
+                    <label>Join Date:</label><input type="date" class="form-control" th:field="*{joinedDate}"><br>
+                    <input type="submit" value="Save" class="btn btn-primary"> &nbsp;<input type="reset" value="Reset" class="btn btn-success">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
