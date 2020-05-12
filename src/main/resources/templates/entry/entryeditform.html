@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MUMShed</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Entry Form</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <form action="#" th:action="@{/entry/updatentry/{id}(id=${entry.intake})}" th:object="${entry}" method="post">
+
+                    <label>Intake:</label>
+                    <select name="intake" class="form-control" th:field="*{intake}">
+                        <option th:value="Feb">FEB</option>
+                        <option th:value="May">MAY</option>
+                        <option th:value="Aug">AUG</option>
+                        <option th:value="Aug">NOV</option>
+                    </select><br>
+
+
+                    <label>Start Date:</label><input type="date" class="form-control" th:field="*{startDate}"><br>
+                    <label>End Date:</label><input type="date" class="form-control" th:field="*{endDate}"><br>
+                    <label>No. of Blocks:</label><input type="number" class="form-control"  th:field="*{noOfBlocks}"><br>
+                    <label>No. of Students:</label><input type="number" class="form-control"  th:field="*{noOfStudents}"><br>
+                    <label>No. of Faculties:</label><input type="number" class="form-control"  th:field="*{noOfFaculties}"><br>
+                    <input type="submit" value="Submit" class="btn btn-primary margin-left:auto;margin-right:auto;display:block;margin-top:22%;margin-bottom:0%">
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="reset" value="Reset" class="btn btn-success">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

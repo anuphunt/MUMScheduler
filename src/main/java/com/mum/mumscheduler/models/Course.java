@@ -10,16 +10,19 @@ import java.util.List;
 @Document(collection = "course")
 public class Course {
     @Id
-    String courseId;
-    String courseName;
-    List<Course> prerequisites;
+    private String courseId;
+    private String courseName;
+    private List<Course> prerequisites;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    String startDate;
+    private String startDate;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    String endDate;
+    private String endDate;
 
     public Course(){
             }
+
     public Course(String courseId, String courseName, List<Course> prerequisites, String startDate, String endDate) {
         this.courseId = courseId;
         this.courseName = courseName;
