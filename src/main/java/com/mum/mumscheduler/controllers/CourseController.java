@@ -44,6 +44,13 @@ import java.util.List;
             return "course/addcourseform";
         }
 
+        //Get Course by course Name
+        public Course getCourseByCourseName(){
+            //implement this
+            return new Course();
+        }
+
+
         @RequestMapping(value = "/addcourse", method = RequestMethod.POST)
         public String addCourse(@ModelAttribute("course") Course course) {
             courseService.add(course);
