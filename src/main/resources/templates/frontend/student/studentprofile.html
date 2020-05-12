@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<title>MUMShed</title>
 <head>
-    <meta charset="UTF-8">
-    <title>MUMSched</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
 
+    <div class="container">
+        <h2 class="text-center"> Welcome <p th:text="${student.username}"></p></h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr class="table-primary"><td></td><td><span>User Details</span></td></tr>
+                            <tr class="table-primary"><td>Username</td><td span th:text="${student.username}"></td></tr>
+                            <tr class="table-primary"><td> Name</td><td span th:text="${student.name}"></td></tr>
+                            <tr class="table-primary"><td>Entry</td><td span th:text="${student.entry}"></td></tr>
+                            <tr class="table-primary"><td>Email</td><td span th:text="${student.email}"></td></tr>
+                            <tr class="table-primary"><td>Address</td><td span th:text="${student.address}"></td></tr>
+
+                            <tr class="table-primary"><td></td><td align="center"><a span th:href="@{/students/editstudent/{id}(id=${student.id})}">Edit Information</a></td></tr>
+                            <tr class="table-primary"><td></td><td align="center"><a span th:href="@{/students/editstudent/{id}(id=${student.id})}">Change Password</a></td></tr>
+
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                    <div class="col-md-5">
+                        <table class="table" >
+                            <thead>
+                            <tr>
+                                <th> Track </th>
+                                <th> List of Selected courses </th>
+                                <th> Completed Courses </th>
+                                <th> Grades </th>
+                                <th> Faculty </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 </body>
 </html>

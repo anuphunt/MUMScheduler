@@ -13,4 +13,5 @@ public interface IStudentService {
     void delete(String id);
     Student add(Student student);
     Student update(Student student, String id);
+    Student getStudentByUsername(String username);
 }
