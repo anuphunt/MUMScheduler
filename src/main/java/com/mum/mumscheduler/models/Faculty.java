@@ -11,6 +11,8 @@ import java.util.List;
 public class Faculty {
     @Id
     private String facultyId;
+    private String username;
+    private String password;
     private String name;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -19,10 +21,29 @@ public class Faculty {
     private List<Block> blocks;
 
     public Faculty(){}
-    public Faculty(String joinedDate, List<Course> specializations, List<Block> blocks){
+    public Faculty(String facultyId, String username, String password, String joinedDate, List<Course> specializations, List<Block> blocks){
+        this.username = username;
+        this.password = password;
+        this.facultyId = facultyId;
         this.joinedDate = joinedDate;
         this.specializations = specializations;
         this.blocks = blocks;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     //Getters
