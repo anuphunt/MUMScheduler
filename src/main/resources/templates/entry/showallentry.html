@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:max-width="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Entry Information</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--        <title>Title</title>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
+
 <body>
-$END$
+<div class="container">
+    <h1 class="text-center">Show All Entry Info </h1>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <!--            <table class="table" align="left">-->
+            <table class="table table-bordered table-striped" align="right">
+                <thead class="thead-dark">
+                <!--                <tr>-->
+                <tr>
+
+                    <th> Intake </th>
+                    <th> StartDate </th>
+                    <th> EndDate </th>
+                    <th> NoOfBlocks</th>
+                    <th> NoOfStudents </th>
+                    <th> NoOfFaculties </th>
+                    <th colspan="2"> Actions </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${entries.empty}">
+                    <td colspan="2"> No Course </td>
+                </tr>
+                <tr th:each="entry : ${entries}">
+                    <td><span th:text="${entry.intake}"> Intake </span></td>
+
+                    <td th:text="${entry.startDate}" align="left" max-width:500px></td>
+                    <td th:text="${entry.endDate}"></td>
+
+                    <td><span th:text="${entry.noOfBlocks}"> NoOfBlocks </span></td>
+                    <td><span th:text="${entry.noOfStudents}"> NoOfStudents </span></td>
+                    <td><span th:text="${entry.noOfFaculties}"> NoOfFaculties </span></td>
+                    <td><a th:href="@{/entries/editentry/{id}(id=${entry.intake})}" class="btn btn-info btn-sm">
+                        Update
+                    </a></td>
+                    <td><a th:href="@{/entries/delete/{id}(id=${entry.intake})}"
+                           class="btn btn-danger btn-sm"
+                           onclick="if (!(confirm('Are you sure you want to delete this entry?'))) return false">
+                        Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
