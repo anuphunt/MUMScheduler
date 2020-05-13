@@ -11,22 +11,24 @@
         </head>
 <body>
 <div class="container">
-    <h1 class="text-center">Show All Students </h1>
-
+    <br>
+    <h3>Students Directory</h3>
     <hr>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
 
-<table class="table" align="center">
-    <thead>
+    <!--    Add button-->
+    <a th:href="@{/students/addstudent}" class="btn btn-primary btn-sm mb-3">
+        Add Student
+    </a>
+
+    <table class="table table-bordered table-striped" align="right">
+        <thead class="thead-dark">
     <tr>
         <th> Student Id </th>
         <th> Name </th>
         <th> Email </th>
         <th> Address </th>
         <th> Entry </th>
-        <th> Actions </th>
+        <th colspan="2"> Actions </th>
     </tr>
     </thead>
     <tbody>

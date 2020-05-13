@@ -15,7 +15,7 @@
         <div class="col-md-4">
 
             <div class="form-group">
-                <form action="#" th:action="@{/entry/updatentry/{id}(id=${entry.intake})}" th:object="${entry}" method="post">
+                <form action="#" th:action="@{/entries/updateentry/{id}(id=${entry.intake})}" th:object="${entry}" method="post">
 
                     <label>Intake:</label>
                     <select name="intake" class="form-control" th:field="*{intake}">
