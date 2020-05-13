@@ -130,7 +130,7 @@ public class FacultyController {
 
 	@PreAuthorize("hasRole('ROLE_Admin')")
 	@GetMapping(value = "/admin/faculty/all")
-	public String ManageStudent(Model model) {
+	public String ManageFaculty(Model model) {
 		model.addAttribute("faculties", facultyService.getAllfaculty());
 		return "manageFaculty";
 	}

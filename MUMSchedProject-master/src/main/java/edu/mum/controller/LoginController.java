@@ -1,5 +1,7 @@
 package edu.mum.controller;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import edu.mum.service.UserProfileService;
@@ -28,7 +30,7 @@ public class LoginController {
         model.addAttribute("loggedInUser", map.get("username"));
 
         if (userProfileService.LoggedInUser().getUserName().equals("admin")) {
-            return "adminhome";
+            return "redirect:/dashboard";
         }
         return "home";
     }

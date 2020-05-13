@@ -3,6 +3,7 @@ package edu.mum.controller;
 
 import javax.validation.Valid;
 
+import edu.mum.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.mum.domain.Admin;
-import edu.mum.service.AdminService;
-import edu.mum.service.RoleService;
 
 
 @Controller
@@ -26,8 +25,30 @@ public class AdminController {
 
 		@Autowired
 		AdminService adminService;
+
 		@Autowired
 		RoleService roleService;
+
+		@Autowired
+		StudentService studentService;
+
+		@Autowired
+		FacultyService facultyService;
+
+		@Autowired
+		CourseService courseService;
+
+		@PreAuthorize("hasAnyRole('ROLE_Admin')")
+		@GetMapping("/dashboard")
+		public String getAdminDashboard(Model model){
+			model.addAttribute("numOfStudents", studentService.getAllstudents().size());
+			model.addAttribute("numOfCourse", courseService.getAllCourser().size());
+			model.addAttribute("numOfFaculty", facultyService.getAllfaculty().size());
+			model.addAttribute("allFaculty", facultyService.getAllfaculty());
+			model.addAttribute("allCourse", courseService.getAllCourser());
+			return "adminhome";
+		}
+
 	   
 	   @PreAuthorize("hasAnyRole('ROLE_Admin')")
 	   @GetMapping(value = "/admin/admin/add")
@@ -35,6 +56,7 @@ public class AdminController {
 	   model.addAttribute("userTypeList", roleService.getAll());
 	        return "addAdmin";
        }
+
 	   @PreAuthorize("hasAnyRole('ROLE_Admin')")
 	   @RequestMapping(value = "/admin/admin/add", method = RequestMethod.POST)
 	   public String saveUser(@Valid @ModelAttribute("newAdmin") Admin admin, BindingResult error,Model model){

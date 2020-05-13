@@ -59,7 +59,7 @@ public class EntryController {
 	}
 	
 	@RequestMapping(value="/allEntry")
-	public String getAllUsers(Model model) {
+	public String getAllEntries(Model model) {
 		// This returns a JSON or XML with the users
 		List<Entry> entryList = entryService.getAllEntry();
 		model.addAttribute("listOfEntries", entryList);
