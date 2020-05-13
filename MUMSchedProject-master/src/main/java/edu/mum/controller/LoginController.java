@@ -29,6 +29,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
   		return "error/403";
   	}
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String login() {
+        return "login";
+
+    }
+
+
      @RequestMapping(value = "/login", method = RequestMethod.GET)
      public String login(ModelMap model) {
 
