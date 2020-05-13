@@ -5,16 +5,30 @@
 <title>Manage User</title>
 <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
 <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
 <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 </head>
 <body>
 
-		<div class="container">
-		
-        <h3>Manage Faculty </h3>  
-         <a th:href="@{/admin/faculty/add}"> Add Faculty</a>
+<div th:replace="fragments/adminheader :: adminheader"></div>
+
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
+
+
+				<div class="container" id="homeDiv">
+					<a th:href="@{/admin/faculty/add}" class="btn btn-primary"> Add Faculty</a>
+					<div class="jumbotran text-center"></div>
+					<h2>Welcome to Manage Faculty</h2>
+					<hr>
+				</div>
+
 		<div class="table-responsive ">
 			<table class="table table-hover">
 				<tr>
@@ -36,5 +50,8 @@
 			</table> 
 		</div>
 	</div>
+		</div>
+	</div>
+
 </body>
 </html>
