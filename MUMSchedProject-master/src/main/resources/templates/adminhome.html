@@ -1,17 +1,128 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>User Registration Form</title>
-      <meta charset="utf-8" />
-<!--      <link rel="stylesheet" type="text/css"-->
-<!--              href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />-->
-<!-- -->
-<!--        <link rel="stylesheet" th:href="@{/css/main.css}"-->
-<!--              href="../../css/main.css" />-->
-
+    <link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+    <script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
+</head>
 <body>
+<div th:replace="fragments/adminheader :: adminheader"></div>
 
-	<h1>Admin Home page</h1>
-	
+<div class="app-main">
+    <div th:replace="fragments/adminsidebar::adminsidebar"></div>
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            <div class="row">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-3 widget-content bg-midnight-bloom">
+                        <div class="widget-content-wrapper text-white">
+                            <div class="widget-content-left">
+                                <div class="widget-heading">Total Students</div>
+                                <div class="widget-subheading">On-Campus Students</div>
+                            </div>
+                            <div class="widget-content-right">
+                                <div class="widget-numbers text-white"><span th:text="${numOfStudents}"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-3 widget-content bg-arielle-smile">
+                        <div class="widget-content-wrapper text-white">
+                            <div class="widget-content-left">
+                                <div class="widget-heading">Total Faculties</div>
+                                <div class="widget-subheading">On-Campus Faculties</div>
+                            </div>
+                            <div class="widget-content-right">
+                                <div class="widget-numbers text-white"><span th:text="${numOfFaculty}"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-3 widget-content bg-grow-early">
+                        <div class="widget-content-wrapper text-white">
+                            <div class="widget-content-left">
+                                <div class="widget-heading">Total Courses</div>
+                                <div class="widget-subheading">Courses offered</div>
+                            </div>
+                            <div class="widget-content-right">
+                                <div class="widget-numbers text-white"><span th:text="${numOfCourse}"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-12 col-lg-6">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-header">All Courses
+                        </div>
+                        <div class="table-responsive">
+                            <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">Course ID</th>
+                                    <th class="text-center">Course Name</th>
+                                    <th class="text-center">Prerequisites</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="course: ${allCourse}">
+                                    <td class="text-center" th:text="${course.getId()}"></td>
+                                    <td class="text-center" th:text="${course.getCourseName()}"></td>
+                                    <td class="text-center">MPP, FPP</td>
+                                    <td class="text-center">
+                                        <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Details</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-header">All Faculties
+                        </div>
+                        <div class="table-responsive">
+                            <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">Faculty ID</th>
+                                    <th class="text-center">Faculty Name</th>
+                                    <th class="text-center">Courses</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="faculty: ${allFaculty}">
+                                    <td class="text-center" th:text="${faculty.getId()}"></td>
+                                    <td class="text-center" th:text="${faculty.getUserProfile().getFirstName()}"></td>
+                                    <td class="text-center" th:text="${faculty.getCourse().get(0).getCourseName()}"></td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary btn-sm">Details</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </body>
-</html>

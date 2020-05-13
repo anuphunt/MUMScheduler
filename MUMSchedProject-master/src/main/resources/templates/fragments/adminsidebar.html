@@ -41,65 +41,65 @@
                 <ul class="vertical-nav-menu">
                     <li class="app-sidebar__heading">Faculties</li>
                     <li>
-                        <a href="#" th:href="@{/faculty/addfaculty}" class="mm-active">
+                        <a href="#" th:href="@{/admin/faculty/add}" class="mm-active">
                             <i class="metismenu-icon pe-7s-eyedropper"></i>
                             Add new faculty
                         </a>
                     </li>
                     <li>
-                        <a href="#" th:href="@{/faculty/all}" class="mm-active">
+                        <a href="#" th:href="@{/admin/faculty/all}" class="mm-active">
                             <i class="metismenu-icon pe-7s-albums"></i>
                             View All Faculties
                         </a>
                     </li>
                     <li class="app-sidebar__heading">Students</li>
                     <li>
-                        <a href = "#" th:href="@{/students/addstudent}" class="mm-active">
+                        <a href = "#" th:href="@{admin/addstudent}" class="mm-active">
                             <i class="metismenu-icon pe-7s-eyedropper"></i>
                             Add new student
                         </a>
                     </li>
                     <li>
-                        <a href="#" th:href = "@{/students/all}" class="mm-active">
+                        <a href="#" th:href = "@{admin/students}" class="mm-active">
                             <i class="metismenu-icon pe-7s-albums"></i>
                             View All Students
                         </a>
                     </li>
                     <li class="app-sidebar__heading">Courses</li>
                     <li>
-                        <a href="#" th:href = "@{/courses/addcourse}" class="mm-active">
+                        <a href="#" th:href = "@{admin/course/add}" class="mm-active">
                             <i class="metismenu-icon pe-7s-eyedropper"></i>
                             Add new course
                         </a>
                     </li>
                     <li>
-                        <a href="#" th:href ="@{/courses/all}"  class="mm-active">
+                        <a href="#" th:href ="@{admin/course/all}"  class="mm-active">
                             <i class="metismenu-icon pe-7s-albums"></i>
                             View all courses
                         </a>
                     </li>
                     <li class="app-sidebar__heading">BLocks</li>
                     <li>
-                        <a href="#" th:href ="@{/block/addblock}" class="mm-active">
+                        <a href="#" th:href ="@{admin/addBlock}" class="mm-active">
                             <i class="metismenu-icon pe-7s-eyedropper"></i>
                             Add new block
                         </a>
                     </li>
                     <li>
-                        <a href="#" th:href ="@{/block/all}" class="mm-active">
+                        <a href="#" th:href ="@{admin/blockList}" class="mm-active">
                             <i class="metismenu-icon pe-7s-albums"></i>
                             View all blocks
                         </a>
                     </li>
                     <li class="app-sidebar__heading">Entry</li>
                     <li>
-                        <a href="#" class="mm-active">
+                        <a href="#" th:href ="@{admin/addEntry}" class="mm-active">
                             <i class="metismenu-icon pe-7s-eyedropper"></i>
                             Add new entry
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="mm-active">
+                        <a href="#" th:href = "@{admin/allEntry}" class="mm-active">
                             <i class="metismenu-icon pe-7s-albums"></i>
                             View all entries
                         </a>

@@ -32,6 +32,7 @@ public class AdminController {
 
     @GetMapping("/dashboard")
     public String getAdminDashboard(Model model){
+
         model.addAttribute("numOfStudents", studentService.getAllStudents().size());
         model.addAttribute("numOfCourse", courseService.getAllCourses().size());
         model.addAttribute("numOfFaculty", facultyService.getAllFaculty().size());
