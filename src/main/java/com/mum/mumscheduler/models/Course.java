@@ -7,12 +7,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 import java.util.List;
 
-@Document(collection = "course")
+@Document(collection = "courses")
 public class Course {
     @Id
     private String courseId;
     private String courseName;
-    private List<String> prerequisites;
+    private String prerequisites;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String startDate;
@@ -23,7 +23,7 @@ public class Course {
     public Course(){
             }
 
-    public Course(String courseId, String courseName, List<String> prerequisites, String startDate, String endDate) {
+    public Course(String courseId, String courseName, String prerequisites, String startDate, String endDate) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.prerequisites = prerequisites;
@@ -47,11 +47,11 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public List<String> getPrerequisites() {
+    public String getPrerequisites() {
         return prerequisites;
     }
 
-    public void setPrerequisites(List<String> prerequisites) {
+    public void setPrerequisites(String prerequisites) {
         this.prerequisites = prerequisites;
     }
 

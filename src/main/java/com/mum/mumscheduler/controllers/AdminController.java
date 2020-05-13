@@ -2,6 +2,8 @@ package com.mum.mumscheduler.controllers;
 
 import com.mum.mumscheduler.models.Admin;
 import com.mum.mumscheduler.services.IAdminService;
+import com.mum.mumscheduler.services.ICourseService;
+import com.mum.mumscheduler.services.IFacultyService;
 import com.mum.mumscheduler.services.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +21,22 @@ public class AdminController {
     @Autowired
     private IAdminService adminService;
 
+    @Autowired
+    private IStudentService studentService;
+
+    @Autowired
+    private IFacultyService facultyService;
+
+    @Autowired
+    private ICourseService courseService;
+
     @GetMapping("/dashboard")
-    public String getAdminDashboard(){
+    public String getAdminDashboard(Model model){
+        model.addAttribute("numOfStudents", studentService.getAllStudents().size());
+        model.addAttribute("numOfCourse", courseService.getAllCourses().size());
+        model.addAttribute("numOfFaculty", facultyService.getAllFaculty().size());
+        model.addAttribute("allFaculty", facultyService.getAllFaculty());
+        model.addAttribute("allCourse", courseService.getAllCourses());
         return "admin/admin-dashboard";
     }
 
