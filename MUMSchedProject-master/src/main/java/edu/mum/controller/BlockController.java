@@ -39,7 +39,7 @@ public class BlockController {
 	}
 
 	@GetMapping({"/addBlockForm"})
-	public String addCourse(@ModelAttribute("block") Block Block, Model model)
+	public String addBlockForm(@ModelAttribute("block") Block Block, Model model)
 	{
 //		model.addAttribute("courseList",courseService.getAllCourser());
 //		model.addAttribute("areaList",specializationsService.findAllspecalization());
