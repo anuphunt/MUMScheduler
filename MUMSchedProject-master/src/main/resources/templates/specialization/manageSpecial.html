@@ -11,24 +11,24 @@
 </head>
 <body>
 		<div class="container">
-		<a th:href="@{/admin/role/add}">Add Role</a>
-        <h2> Manage Role  </h2>
+		<a th:href="@{/admin/special/add}">Add Specialization</a>
+        <h2> Manage Specialization </h2>
 		<div class="table-responsive ">
 			<table class="table table-hover">
 				<tr>
-					<th>Role ID</th>
-					<th>Role Name</th>
+					<th>Specialization ID</th>
+					<th>Specialization Name</th>
 					<!-- <th>Role Description</th> -->
 				</tr>
-				<tr th:each="role :${roles}">
-					<td th:text="${role.id}"></td>
-					<td th:text="${role.role}"></td>
+				<tr th:each="special :${SpecialList}">
+					<td th:text="${special.id}"></td>
+					<td th:text="${special.specalization}"></td>
 					<!-- <td th:text="${role.description}"></td> -->
 					<td>
-					<a	href="manageuser.html" th:href="@{|/admin/role/delete/${role.id}}"> 
+					<a href="../manageuser.html" th:href="@{|/admin/specialization/delete/${special.id}}">
 					         <span class="glyphicon glyphicon-trash"></span></a></td>
 					<td>
-					<a th:href="@{|/admin/role/update/${role.id}}"> <span
+					<a th:href="@{|/admin/specialization/update/${special.id}}"> <span
 							class="glyphicon glyphicon-pencil"></span></a></td>
 				</tr>
 			</table> 
