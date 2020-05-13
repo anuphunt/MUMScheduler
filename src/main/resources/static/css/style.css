@@ -1,0 +1,191 @@
+/* reset */
+*,html,body{
+	margin:0;
+	padding:0;
+}
+img{
+	max-width:100%;
+}
+hr{
+	border-top: 1px solid #ccc;
+}
+
+
+
+header{
+	background:#dddddd;
+	border-top:5px solid #c62c3c;
+}
+.logo{
+	margin:10px 0;
+	float:left;
+}
+.email{
+	font-size:20px;
+	float:right;
+	background:#c62c3c;
+	color:#ffffff;
+	padding:5px 15px;
+	border-radius:0 0 5px 5px;
+}
+.email i{
+	margin-right:8px;	
+}
+.custom-carousel{
+	margin-bottom:30px;
+}
+.carousel-caption h1, .carousel-caption p{
+	color:#fff;
+}
+.readmore{
+	background:#2e397c;
+	color:#fff;
+	text-decoration:none;
+	padding:5px 15px;
+	border-radius:3px;
+	
+}
+.readmore:hover{
+	background:#C03;
+	color:#ffffff;
+}
+.choose-us ul{
+	margin-left:20px;
+}
+.choose-us ul li{
+	font-size:20px;
+	padding:10px 0;
+}
+footer{
+	background:#c62c3c;
+	padding:20px 0;
+	margin-top:40px;
+}
+footer h2{
+	color:#ffffff;
+}
+.quick-link ul li{
+	list-style:none;
+	padding:5px 0;
+}
+.quick-link ul li a{
+	color:#ffffff;
+	font-size:14px;
+	border-bottom:1px dashed #eee;
+	display:block;
+	padding:5px 0;
+}
+.contact-us ul li{
+	list-style:none;
+	padding:10px 0;
+	color:#ffffff;
+}
+.contact-us ul li strong{
+	float:left;
+	margin-right:15px;
+}
+.contact-us ul li strong i{
+	margin-right:10px;
+}
+
+ #bar ul
+    {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: grey;
+      text-align: center;
+    }
+    #bar li
+    {
+      float: left;
+      padding: 16px 16px;
+      text-decoration: none;
+      color: white;
+     
+      display: block;
+
+    }
+   #bar li a
+    {
+      
+      text-decoration: none;
+      color: white;
+     
+    }
+   #bar li a:hover
+    {
+      color: green;
+    }
+    .link a
+    {
+    margin:10px;
+    text-decoration: none;	
+    
+  
+    background-color: green;
+   
+   
+    border-radius:5px 5px 5px 5px;
+   
+	float:right;
+	background:#c62c3c;
+	color:#ffffff;
+	text-align: center;
+
+
+    }
+    a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+
+/*tab bar */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+
+ 
+  margin:0 auto;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.bcs {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.mba {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
