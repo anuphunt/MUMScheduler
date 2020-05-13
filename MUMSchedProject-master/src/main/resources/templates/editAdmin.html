@@ -12,9 +12,7 @@
 </head>
 <body>
 
-    <div th:replace="fragments/header :: header-css"></div>
-	<div th:replace="fragments/header :: header"></div>
-	
+
  
    <div class="container col-md-12" >
    <form th:action="@{/admin/admin/update}" th:object="${editAdmin}" method="post"  class="form-horizontal">
