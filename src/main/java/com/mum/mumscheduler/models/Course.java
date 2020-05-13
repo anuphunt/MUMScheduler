@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 import java.util.List;
 
-@Document(collection = "course")
+@Document(collection = "courses")
 public class Course {
     @Id
     private String courseId;
