@@ -177,8 +177,6 @@ INSERT INTO faculty_course (faculty_id, course_id) VALUES (7,8);
 INSERT INTO faculty_course (faculty_id, course_id) VALUES (7,10);
 INSERT INTO faculty_course (faculty_id, course_id) VALUES (7,11);
 
-
-
 INSERT INTO faculty_specializations (faculty_id, specializations_id) VALUES (11,3);
 INSERT INTO faculty_specializations (faculty_id, specializations_id) VALUES (14,2);
 INSERT INTO faculty_specializations (faculty_id, specializations_id) VALUES (9,1);

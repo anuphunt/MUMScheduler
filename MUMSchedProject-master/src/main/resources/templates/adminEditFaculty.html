@@ -16,8 +16,6 @@
 
 </head>
 <body>
-	<div th:replace="fragments/header :: header-css"></div>
-	<div th:replace="fragments/header :: header"></div>
 	<div>
 		<form th:action="@{/admin/faculty/edit}" th:object="${newFaculty}"
 			method="post" class="form-horizontal" id="editForm">
