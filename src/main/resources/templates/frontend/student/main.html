@@ -18,6 +18,7 @@
 
     <script type="text/javascript" src="../static/scripts/jquery-1.12.4.min.js" th:src="@{/scripts/jquery-1.12.4.min.js}"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript"></script>
 
 
 
@@ -31,43 +32,37 @@
 
 </div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <table class="table table-striped">
-                    <tbody>
-                    <tr class="table-primary"><td></td><td><span>User Details</span></td></tr>
-                    <tr class="table-primary"><td>Username</td><td span th:text="${student.username}"></td></tr>
-                    <tr class="table-primary"><td> Name</td><td span th:text="${student.name}"></td></tr>
-                    <tr class="table-primary"><td>Entry</td><td span th:text="${student.entry}"></td></tr>
-                    <tr class="table-primary"><td>Email</td><td span th:text="${student.email}"></td></tr>
-                    <tr class="table-primary"><td>Address</td><td span th:text="${student.address}"></td></tr>
-
-                    <tr class="table-primary"><td></td><td align="center"><a span th:href="@{/students/editstudent/{id}(id=${student.id})}">Edit Information</a></td></tr>
-                    <tr class="table-primary"><td></td><td align="center"><a span th:href="@{/students/editstudent/{id}(id=${student.id})}">Change Password</a></td></tr>
-
-                    </tbody>
-                </table>
 
 
+                <div class= "row">
+                    <div class="col-md-4">
+                        <!-- Sidebar -->
+                        <div id="sidebar-wrapper">
+                            <ul class="sidebar-nav">
+                                <li class="sidebar-brand"><a href="#">Start Bootstrap</a>
+                                </li>
+                                <li><a href="#">Dashboard</a>
+                                </li>
+                                <li><a href="#">Shortcuts</a>
+                                </li>
+                                <li><a href="#">Overview</a>
+                                </li>
+                                <li><a href="#">Events</a>
+                                </li>
+                                <li><a href="#">About</a>
+                                </li>
+                                <li><a href="#">Services</a>
+                                </li>
+                                <li><a href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
 
-            </div>
-            <div class="col-md-7">
-                <table class="table" >
-                    <thead>
-                    <tr>
-                        <th> Track </th>
-                        <th> List of Selected courses </th>
-                        <th> Completed Courses </th>
-                        <th> Grades </th>
-                        <th> Faculty </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
+                    </div>
         </div>
     </div>
+
+
 <div th:replace="frontend/includes/footer :: footer"></div>
 
 </body>

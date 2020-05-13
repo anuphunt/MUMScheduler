@@ -9,21 +9,30 @@
     <title>MUMShed</title>
 
 
-
-
-
 </head>
 <body>
 <header th:fragment="header">
     <div class="container">
         <div class="logo">
-            <img src="../../static/images/logo.png" alt="logo" style="height: 100px; width: 180px;">
+            <img src="../../static/images/logo-f.png" alt="logo" media="screen" th:src="@{/images/logo-f.png}">
         </div>
         <div class="email">
             <i class="glyphicon glyphicon-envelope"></i>
-            <span>info@sunway.edu.np</span>
+            <span>info@mum.edu.np</span>
         </div>
     </div>
+    <nav class="navbar navbar-default">
+        <div class="topnav">
+
+
+            <a th:href="@{/studentprofile/{username}(username=${student.username})}">Home</a>
+           <a th:href="@{/studentprofile/details/{username}(username=${student.username})}">Profile</a>
+           <a href="@{/logout}">Logout</a>
+
+        </div>
+
+    </nav>
+
 </header>
 </body>
 </html>
