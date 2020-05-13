@@ -11,10 +11,12 @@
 <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 </head>
 <body>
-
+<div th:replace="fragments/adminheader::adminheader"></div>
+<div th:replace="fragments/adminsidebar::adminsidebar"></div>
 	
- 
-   <div class="container col-md-12" >
+
+<div class="container col-md-3" ></div>
+	   <div class="container col-md-5">
    <form  th:object="${newFaculty}" method="post"  class="form-horizontal">
 			<fieldset>
 				<legend>Faculty Personal Detail</legend>
