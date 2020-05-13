@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--<script-->
+<!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
+
+
+<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" th:crossorigin="anonymous" />-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" th:crossorigin="anonymous" />-->
+<!--<link rel="stylesheet"  href="style.css" />-->
+<!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" th:crossorigin="anonymous"></script>-->
+
+
+<meta charset="ISO-8859-1" />
+<title>Insert title here</title>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"> </div>
+	<div class="addForm">	
+		<form method="post" action="/admin/updateEntry" modelAttribute="entry" class="form-group">
+			<label for="entryMonth">Entry Month</label>
+			<input type="text" class="form-control" th:value="${updatableEntry.entryMonth}" name="entryMonth" />
+			<br></br>
+			<label for="numOfMpp">Number of MPP</label>
+			<input class="form-control" type="number" th:value="${updatableEntry.numOfMpp}" name="numOfMpp" />
+			<br></br>
+			<label for="numOfFpp">Number of FPP</label>
+			<input class="form-control" type="number" th:value="${updatableEntry.numOfFpp}" name="numOfFpp" />
+			<br></br>
+			<label for="numOfFppOpt">Number of FPP OPT Students</label>
+			<input class="form-control" type="number" th:value="${updatableEntry.numOfFppOpt}" name="numOfFppOpt" />
+			<br></br>
+			<label for="numOfMppOpt">Number of MPP OPT Students</label>
+			<input class="form-control" type="number" th:value="${updatableEntry.numOfMppOpt}" name="numOfMppOpt" />
+			<br></br>
+			
+			<label for="numOfUSstudents">Number of US Students</label>
+			<input class="form-control" type="number" th:value="${updatableEntry.numOfUSstudents}" name="numOfUSstudents" />
+			<br></br>
+			<input name="id"  type="hidden" th:value="${updatableEntry.id}" />
+			<button type="submit" class="btn btn-primary">Update</button>
+		</form> 
+	</div>	
+</body>
+</html>

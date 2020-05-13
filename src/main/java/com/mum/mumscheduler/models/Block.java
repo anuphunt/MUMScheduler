@@ -11,6 +11,7 @@ public class Block {
 
     @Id
     private String blockID;
+    private String blockName;
     private String entryName;
     private int FPPNum;
     private int MPPNum;
@@ -25,13 +26,22 @@ public class Block {
 
     }
 
-    public Block(String blockID, String entryName, int FPPNum, int MPPNum, String startDate, String endDate) {
+    public Block(String blockID, String blockName, String entryName, int FPPNum, int MPPNum, String startDate, String endDate) {
         this.blockID = blockID;
+        this.blockName = blockName;
         this.entryName = entryName;
         this.FPPNum = FPPNum;
         this.MPPNum = MPPNum;
         this.startDate = startDate;
         this.endDate = endDate;
+    }
+
+    public String getBlockName() {
+        return blockName;
+    }
+
+    public void setBlockName(String blockName) {
+        this.blockName = blockName;
     }
 
     public String getBlockID() {

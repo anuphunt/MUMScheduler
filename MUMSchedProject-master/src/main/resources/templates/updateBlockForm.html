@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<!--<script-->
+<!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
+
+
+<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" th:crossorigin="anonymous" />-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" th:crossorigin="anonymous" />-->
+
+<!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" th:crossorigin="anonymous"></script>-->
+<!--<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />-->
+
+
+<meta charset="ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"> </div>
+	<div class="addForm">	
+		<form method="post" action="/admin/updateBlock" modelAttribute="block" class="form-group">
+			<label for="blockMonth">Block Month</label>
+			<input type="text" class="form-control" th:value="${blockUpdateable.blockMonth}" name="blockMonth" />
+			<br></br>
+			<label for="blockStartDate">Start Date</label>
+			<input class="form-control" type="Date" th:value="${blockUpdateable.blockStartDate}" name="blockStartDate" />
+			<br></br>
+			<label for="blockEndDate">End Date</label>
+			<input class="form-control" type="Date" th:value="${blockUpdateable.blockEndDate}" name="blockEndDate" />
+			<br></br>
+			<label for="numOfStudents">Number of Students</label>
+			<input class="form-control" type="number" th:value="${blockUpdateable.numOfStudents}" name="numOfStudents" />
+			<br></br>
+			<label for="blockOrder">Block Order</label>
+			<input class="form-control" type="number" th:value="${blockUpdateable.blockOrder}" name="blockOrder" />
+			<br></br>
+			
+			<input name="block_id"  type="hidden" th:value="${blockUpdateable.id}" />
+			<input name="id"  type="hidden" th:value="${blockUpdateable.entry.id}" />
+			<button type="submit" class="btn btn-primary">Update</button>
+		</form> 
+	</div>	
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<!--<script-->
+<!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
+
+
+<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" th:crossorigin="anonymous" />-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" th:crossorigin="anonymous" />-->
+<!--<link rel="stylesheet"  href="style.css" />-->
+<!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" th:crossorigin="anonymous"></script>-->
+
+
+<meta charset="ISO-8859-1" />
+<title>view student profile</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/style1.css}" />
+</head>
+<body>
+<!--  <div role="navigation">
+   <div class="navbar navbar-inverse">
+    <a href="#" class="navbar-brand">Student Page</a>
+     <div class="navbar-collapse collapse"></div>
+        <ul class="nav navbar-nav">
+           <li><a href="/student/viewschedule">My Course Schedule</a></li>
+          
+             
+      
+   </ul>
+   </div>
+   
+    </div> -->
+    
+  <div th:fragment="facultyheader">
+	<div th:replace="fragments/header :: header"> </div>
+	<div class="mainContainer">
+		<div class="mainHeader">
+			<div class="leftHeader">
+				<table>
+					<tr>
+						<td><img class="pic" alt="" th:src="@{/image/malecostume-512.png}" /></td>
+						<td  class="myProfile"><div class="facultyName">Student</div>
+							<div style="color:blue" th:text="${student.userprofile.firstName}"></div><div style="color:blue" th:text="${{student.userprofile.lastName}}"></div>
+							<hr /></td>
+							
+					</tr>
+				</table>		
+			</div>
+			<div class="rightHeaderMain">
+				<div class="middleHeader">
+					<div class="myProfile">Email</div>
+					<div style="color:blue" th:text="${student.userprofile.email}"></div>
+					
+					<hr />
+					<div class="myProfile">Degree</div>
+					<div style="color:blue" th:text="${student.degree}"></div>
+					<hr />
+					<div class="myProfile">Field of study</div>
+					<div style="color:blue" th:text="${student.field}"></div>
+					<hr />
+				<div class="myProfile">ID</div>
+					<div style="color:blue" th:text="${student.idNumber}"></div>
+			
+			</div>
+		</div>
+	</div>
+	<!-- <ul> <li><a href="/student/updatestudent">Edit Profile</a></li> </ul>	 -->
+	</div> 
+   </div>	
+	
+<!--      <div class="container text-center" id="userDiv">
+     
+      <div class="jumbotran text-center"></div>
+       <h1>Profile</h1>
+       <hr></hr>
+       <div class="table-responsive ">
+       <table class="table table-striped table-bordered">
+          <tr>
+                <th>Id Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>  
+                <th>Degree</th> 
+                <th>Field</th> 
+            </tr>
+            
+           
+             <tr th:object="${student}">
+               <td th:text="${student.idNumber}"></td>
+               
+               <td th:text="${student.userprofile.firstName}"></td>
+               <td th:text="${student.userprofile.lastName}"></td> 
+                <td th:text="${student.degree}"></td> 
+                 <td th:text="${student.field}"></td> 
+                 
+               <td th:href="@{/updatestudent}">
+		               <a href="manageuser.html"
+		                 th:href="@{|/student/updatestudent}">
+		                 <span class="glyphicon glyphicon-pencil"></span></a>
+               </td>  
+             
+               </tr>
+      
+              
+       </table>
+   
+       </div>
+   </div> -->
+ 
+   
+	
+			
+		
+			
+
+<div th:replace="fragments/footer :: footer"></div>
+<script src="/jquery/jquery-3.2.1.min.js"></script>    
+<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/getrequest.js"></script>
+</body>
+</html>

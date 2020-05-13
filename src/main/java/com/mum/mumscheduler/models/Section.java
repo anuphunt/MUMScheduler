@@ -18,8 +18,7 @@ public class Section {
 
     public Section(){}
 
-    public Section(String id, Course course, Block block, List<Student> students){
-        this.id = id;
+    public Section(Course course, Block block, List<Student> students){
         this.course = course;
         this.block = block;
         this.students = students;

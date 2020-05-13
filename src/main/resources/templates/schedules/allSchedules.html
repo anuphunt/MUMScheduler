@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>All Schedules</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-$END$
+<div class="container">
+    <br>
+    <h3>All Schedules</h3>
+    <hr>
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Schedule Id</th>
+            <th>User Id</th>
+            <th>Generated Date</th>
+            <th>Entry</th>
+            <th>Block</th>
+            <th>Course</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="sc: ${schedules}">
+            <td th:text="${sc.userId}"></td>
+            <td th:text="${sc.generatedDate}"></td>
+            <td th:text="${sc.entry.getIntake()}"></td>
+            <td th:text="${sc.block.getBlockName()}"></td>å
+            <td th:text="${sc.section.getCourse().getCourseName()}"></td>
+            <!--                Update button-->
+<!--            <td>-->
+<!--                <a th:href="@{/block/updateBlock(id=${block.blockID})}"-->
+<!--                   class="btn btn-info btn-sm">-->
+<!--                    Update-->
+<!--                </a>-->
+<!--                <a th:href="@{/block/delete(id=${block.blockID})}"-->
+<!--                   class="btn btn-danger btn-sm"-->
+<!--                   onclick="if (!(confirm('Are you sure you want to delete this block?'))) return false">-->
+<!--                    Delete-->
+<!--                </a>-->
+<!--            </td>-->
+        </tr>
+        </tbody>
+    </table>
+
+</div>
 </body>
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<!--<script-->
+<!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
+
+
+<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" th:crossorigin="anonymous" />-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" th:crossorigin="anonymous" />-->
+<!--<link rel="stylesheet"  href="style.css" />-->
+<!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" th:crossorigin="anonymous"></script>-->
+
+
+<meta charset="ISO-8859-1" />
+<title>view Entry</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"> </div>
+<div class="mainContainer">
+	<button class="btn btn-primary" onclick="location.href='/admin/addEntry'">Add Entry</button>
+	<table class="table table-striped table-hover">
+			<tr>
+				    <th>Entry Month</th>
+				    <th>Number of FPP</th>
+				    <th>Number of MPP</th>
+				    <th>Number of FPP-OPT</th>
+				    <th>Number of FPP-OPT</th>
+				    <th>Number of US</th>
+			</tr>	    
+			<tr th:each="entry : ${listOfEntries}">	
+			        <td th:text="${entry.entryMonth}">1 </td>
+			
+			        <td th:text="${entry.numOfFpp}">Title ...</td>
+			        <td th:text="${entry.numOfMpp}">Text ...</td>
+			        <td th:text="${entry.numOfFppOpt}">Text ...</td>
+			        <td th:text="${entry.numOfMppOpt}">Text ...</td>
+			        <td th:text="${entry.numOfUSstudents}">Text ...</td>
+			        
+		        <td>   
+		        	<div class="buttonDiv">   
+				        <form method="post" action="/admin/deleteEntry">
+				        	<input name="id"  type="hidden" th:value="${entry.id}" />
+				        	<input class="btn btn-danger" type="submit" value="Delete" />
+				        </form>
+				     </div>   
+			    </td>
+			    <td>
+			    	<div class="buttonDiv">
+				        <form method="post" action="/admin/findEntry">
+				        	<input name="id"  type="hidden" th:value="${entry.id}" />
+				        	<input class="btn btn-primary" type="submit" value="Update" />
+				        </form>
+				     </div>
+			    </td>
+			    <td>
+			    	<div class="buttonDiv">
+						<form method="post" action="/admin/blockList">
+							<input name="id"  type="hidden" th:value="${entry.id}" />
+				        	<input class="btn btn-primary" type="submit" value="Blocks" />
+				        </form>
+				    </div>    
+				</td>
+		   </tr>
+	</table>	  
+</div>
+ 		
+</body>
+</html>

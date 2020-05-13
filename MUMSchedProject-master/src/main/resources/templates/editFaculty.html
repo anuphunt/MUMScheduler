@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Edit Faculty</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--<link rel="stylesheet"-->
+<!--	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+<!--<script-->
+<!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--<script-->
+<!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<!--<link th:href="@{css/main.min.css}" rel="stylesheet" />-->
+<!--<script-->
+<!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
+
+
+<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" th:crossorigin="anonymous" />-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" th:crossorigin="anonymous" />-->
+<!--<link rel="stylesheet"  href="style.css" />-->
+<!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" th:crossorigin="anonymous"></script>-->
+
+
+<meta charset="ISO-8859-1" />
+<title>view Entry</title>
+<!--<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />-->
+
+<!--<link rel="stylesheet" type="text/css" th:href="@{/css/style1.css}" />-->
+
+
+</head>
+<body>
+	<!-- <div th:replace="fragments/header :: header-css"></div>
+	<div th:replace="fragments/header :: header"></div>
+ -->
+ <div th:replace="viewFacultySchedule :: facultyheader"></div>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Edit Faculty</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><button id="personalLink" class="btn btn-primary"
+						data-toggle="button" aria-pressed="false"
+						onclick="myFunction('personalLink');">Personal Info</button></li>
+				<li><button id="specialLink" class="btn btn-primary"
+						data-toggle="button" aria-pressed="false"
+						onclick="myFunction('specialLink');">Specialization</button></li>
+				<li><button id="coursesLink" class="btn btn-primary"
+						data-toggle="button" aria-pressed="false"
+						onclick="myFunction('coursesLink');">Course</button></li>
+			<li><button id="scheduleLink" class="btn btn-primary"
+						data-toggle="button" aria-pressed="false"
+						onclick="myFunction('scheduleLink');">View Schedule</button></li>
+			</ul>
+		</div>
+	</nav>
+
+
+	<div class="alert alert-danger alert-dismissable fade in" id="error">
+
+	</div>
+	<form th:action="@{/faculty/updatePersonaInfo}" th:object="${newFaculty}"
+		method="post" class="form-horizontal" id="editForm">
+		 <p>
+			<input type="hidden" th:field="*{id}" name="ID" />
+			<input type="hidden" th:field="*{userProfile.id}" name="ID" />
+
+		</p> 
+		<div id="personalInfo">
+			<p>
+				<label for="email">Email : </label> <input id="email"
+					class="form-control" th:field="*{userProfile.email}" />
+			</p>
+			<p>
+				<label for="userName">User Name : </label> <input id="userName"
+					class="form-control mb-2 mb-sm-0" type="text"
+					th:field="*{userProfile.userName}" />
+			</p>
+			<p>
+				<label for="password">Password : </label> <input type="password"
+					class="form-control mb-2 mb-sm-0" id="password"
+					th:field="*{userProfile.password}" />
+			</p>
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<input type="submit" class="btn btn-lg btn-primary btn-block"
+						id="btnPersonal" value="Save"  />
+				</div>
+
+			</div>
+		</div>
+	</form>
+
+	<form th:action="@{/faculty/updateSpecialization}" th:object="${newFaculty}"
+		method="post" class="form-horizontal" id="specialForm">
+		<div id="specializationInfo">
+			<p>
+				<input type="hidden" th:field="*{id}" name="ID" />
+
+			</p>
+			<p>
+
+				<label for="specializations">Specializations :</label> <select
+					th:field="*{specializations}" class="selectpicker" id="specialSelection" >
+					<option th:each="special : ${specializations}"
+						th:value="${special.id}" th:text="${special.specalization}">specializations</option>
+				</select>
+			</p>
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6">
+				<input id="btnSpecialization" type="submit" class="btn btn-primary"
+						data-toggle="submit" aria-pressed="false" value="Add"/>
+					<!-- <input type="button" class="btn btn-lg btn-primary btn-block"
+						id="btnSpecialization" value="Add" onclick="addSpecialization('specialForm');"/> -->
+				</div>
+			
+				<div th:field="*{specializations}">
+				
+					<fieldset >
+					<legend>Your Specialization List </legend>
+					<div id="specialList">
+							<p th:each="item : *{specializations}" th:text="${item.specalization}">Specialization</p>
+						
+					</div>
+					
+					</fieldset>
+					</div>
+				</div>
+		
+			</div>
+	</form>
+
+
+	<form th:action="@{/faculty/updateCourse}" th:object="${newFaculty}"
+		method="post" class="form-horizontal">
+		<div id="courseInfo">
+			<p>
+				<input type="hidden" th:field="*{id}" name="ID" />
+
+			</p>
+			<p>
+				<label for="course"> Courses :</label> <select th:field="*{course}"
+					class="selectpicker">
+					<option th:each="course : ${courseList}" th:value="${course.id}"
+						th:text="${course.courseName}">specializations</option>
+				</select>
+			</p>
+			<br></br>
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<input type="submit" class="btn btn-lg btn-primary btn-block"
+						id="btnCourse" value="Add"  />
+				</div>
+              <br></br>
+                 <fieldset >
+					<legend>Your Specialization List </legend>
+					<div id="specialList">
+							<p th:each="item : *{course}" th:text="${item.courseName}">Course Name</p>
+						
+					</div>
+					
+					</fieldset>
+
+
+
+			</div>
+		
+		</div>
+	</form>
+
+  <div class="container" id="viewSchedule">
+		<h4>
+			<a href="/admin/schedule/list"><i class="fa fa-hand-o-up">Schedule
+					List</i></a>
+		</h4>
+		<!-- <h2 th:inline="text">Schedule For [[${entry.entryMonth}]] Entry</h2> -->
+		<br />
+		<div class="table-responsive ">
+			<table class="table table-hover">
+
+				<tr>
+					<th>Sections To Teach</th>
+					<th>Course Offered</th>
+					<th>Grading</th>
+
+
+				</tr>
+
+				<tr  th:each="section : ${sections}">
+					<td th:text="${section.block.blockMonth}"></td>
+					<td th:text="${section.course.courseDesc}"></td>
+					<td>
+				    	<a th:href="@{|/faculty/section/grading/${section.id}}"> Grade</a></td>
+				</tr>
+
+
+			</table>
+		</div>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+
+	<script>
+	
+$("document").ready(function() {
+	 document.getElementById("personalInfo").style.display="block";
+	 document.getElementById("specializationInfo").style.display="none";
+    document.getElementById("courseInfo").style.display="none";
+    document.getElementById("viewSchedule").style.display="none";
+
+});
+function myFunction(obj) {
+	
+    if (obj =="personalLink") {
+    	
+        document.getElementById("personalInfo").style.display="block";
+        document.getElementById("specializationInfo").style.display="none";
+        document.getElementById("courseInfo").style.display="none";
+        document.getElementById("viewSchedule").style.display="none";
+        
+        
+    } 
+    if (obj =="specialLink") {
+        document.getElementById("specializationInfo").style.display="block";
+        document.getElementById("personalInfo").style.display="none";
+        document.getElementById("courseInfo").style.display="none";
+        document.getElementById("viewSchedule").style.display="none";
+        
+        
+    }
+    if (obj =="coursesLink") {
+    	document.getElementById("courseInfo").style.display="block";
+        document.getElementById("specializationInfo").style.display="none";
+        document.getElementById("personalInfo").style.display="none";
+        document.getElementById("viewSchedule").style.display="none";
+      
+     }
+    if(obj=="scheduleLink"){
+    	document.getElementById("viewSchedule").style.display="block";
+    	document.getElementById("courseInfo").style.display="none";
+        document.getElementById("specializationInfo").style.display="none";
+        document.getElementById("personalInfo").style.display="none";
+    }
+}
+
+
+
+/* var=contextRoot="/"+ window.location.pathname.split('/')[1];
+
+var addSpecialization=function(editFaculty){
+	 var dataToSend = JSON.stringify(serializeObject($('#specialForm')));
+    var selectSpecial=$("#selectedSpecial :selected");
+	$.ajax({
+		
+		url: "http://localhost:8080/faculty/updateSpecialization",
+		type: "POST",
+		dataType: "JSON",
+		data: selectSpecial,
+		contentType: 'application/json',
+		success : function(object){
+			   $.each(data, object) {
+				  $("#specialList").append("<p>data.specalization</p>");
+		        }); 
+		        
+		}
+	  error: function(errorObject ){
+		  alert(errorObject);
+	  }
+	
+	}); 
+	
+};
+ 
+function serializeObject (form)
+{
+    var jsonObject = {};
+    var array = form.serializeArray();
+    $.each(array, function() {
+         	jsonObject[this.name] = this.value;
+    });
+    return jsonObject;
+
+};  */
+</script>
+</body>
+</html>

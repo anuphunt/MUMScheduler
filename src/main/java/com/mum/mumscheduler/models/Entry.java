@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 @Document(collection = "entry")
 public class Entry {
@@ -14,6 +15,11 @@ public class Entry {
     private int noOfBlocks;
     private int noOfFaculties;
     private int noOfStudents;
+    private int noOfFppStudents;
+    private int noOfMppStudents;
+    private int numOfUSStudents;
+
+    private List<Block> blocks;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String startDate;

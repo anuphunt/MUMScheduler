@@ -1,4 +1,4 @@
-package com.mum.mumscheduler.utilities.section;
+package com.mum.mumscheduler.sectionregistrationsubsystem;
 
 import com.mum.mumscheduler.dao.ICourseDao;
 import com.mum.mumscheduler.models.*;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SectionCreatorImpl implements ISectionCreator{
+public class SectionCreatorSubsystemFacade implements ISectionCreatorSubsystem {
 
     @Autowired
     ICourseDao courseDao;
@@ -28,5 +28,12 @@ public class SectionCreatorImpl implements ISectionCreator{
             Course course = new Course("344", "MPP", Arrays.asList("FPP"), "2020-02-19", "2020-03-19");
             sections.add(new Section(course, block, new ArrayList<Student>()));
         }
+
+        return new ArrayList<Section>();
+    }
+
+    @Override
+    public void registerStudentsInSection(List<Student> students, Section section) {
+
     }
 }

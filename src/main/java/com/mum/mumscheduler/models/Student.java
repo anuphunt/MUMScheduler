@@ -1,9 +1,15 @@
 package com.mum.mumscheduler.models;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document(collection = "student")
+@Getter
+@Setter
 public class Student {
     @Id
     String id;
@@ -13,11 +19,14 @@ public class Student {
     String entry;
     String address;
     String email;
+    String track;
+    String nationality;
+    List<Section> sections;
 
     public Student() {
     }
 
-    public Student(String id, String username, String password, String name, String entry, String address, String email) {
+    public Student(String id, String username, String password, String name, String entry, String address, String email, String track, String nationality, List<Section> sections) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -25,6 +34,17 @@ public class Student {
         this.entry = entry;
         this.address = address;
         this.email = email;
+        this.track = track;
+        this.nationality = nationality;
+        this.sections = sections;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -41,14 +61,6 @@ public class Student {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -81,5 +93,29 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTrack() {
+        return track;
+    }
+
+    public void setTrack(String track) {
+        this.track = track;
+    }
+
+    public String isIntlStudent() {
+        return nationality;
+    }
+
+    public void setIntlStudent(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public List<Section> getSections() {
+        return sections;
+    }
+
+    public void setSections(List<Section> sections) {
+        this.sections = sections;
     }
 }

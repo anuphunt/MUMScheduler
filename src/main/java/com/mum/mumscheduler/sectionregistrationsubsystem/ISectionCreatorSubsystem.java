@@ -1,12 +1,11 @@
-package com.mum.mumscheduler.utilities.section;
+package com.mum.mumscheduler.sectionregistrationsubsystem;
 
-import com.mum.mumscheduler.models.Block;
-import com.mum.mumscheduler.models.Course;
-import com.mum.mumscheduler.models.Entry;
-import com.mum.mumscheduler.models.Section;
+import com.mum.mumscheduler.models.*;
+import com.mum.mumscheduler.services.impl.StudentServiceImpl;
 
 import java.util.List;
 
-public interface ISectionCreator {
+public interface ISectionCreatorSubsystem {
     List<Section> createSections(Block block);
+    void registerStudentsInSection(List<Student> students, Section section);
 }

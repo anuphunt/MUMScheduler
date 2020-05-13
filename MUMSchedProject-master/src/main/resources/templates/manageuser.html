@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+ <html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+      <title>User List</title>
+      <meta charset="utf-8" />
+<!--      <link rel="stylesheet" type="text/css"-->
+<!--              href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+<!-- -->
+<!--        <link rel="stylesheet" th:href="@{/css/main.css}"-->
+<!--              href="../../css/main.css" />-->
+</head>
+<body>
+ <div role="navigation">
+   <div class="navbar navbar-inverse">
+    <a href="#" class="navbar-brand">MUM Schedule</a>
+     <div class="navbar-collapse collapse"></div>
+        <ul class="nav navbar-nav">
+           <li><a href="/users">Users</a></li>
+           <li><a href="/addUser">Add User</a></li>
+      
+   </ul>
+   </div>
+   
+   <div class="ontainer" id="homeDiv">
+      <div class="jumbotran text-center"></div>
+       <h1>Welcome to Manage User</h1>
+   </div>
+   
+    <div class="container text-center" id="userDiv" th:if="${mode=='USERS'}">
+       <h3> User List</h3>
+      <div class="jumbotran text-center"></div>
+       <h1>Welcome to Manage User</h1>
+       <hr></hr>
+       <div class="table-responsive ">
+       <table class="table table-striped table-bordered">
+          <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>  
+            </tr>
+            <tr th:each="user :${users}">
+               <td th:text="${user.id}"></td>
+               <td th:text="${user.firstName}"></td>
+               <td th:text="${user.lastName}"></td>
+               <td th:href="@{/userdelete(id=${user.id})}">
+		               <a href="manageuser.html"
+		                 th:href="@{|/userdelete/${user.id}}">
+		                 <span class="glyphicon glyphicon-trash"></span></a>
+               </td>
+               
+               <td th:href="@{/updateuser(id=${user.id})}">
+		               <a href="manageuser.html"
+		                 th:href="@{|/updateuser/${user.id}}">
+		                 <span class="glyphicon glyphicon-pencil"></span></a>
+               </td>
+             
+               
+           </tr>
+              
+       </table>
+       </div>
+   </div>
+ 
+   <div class="container col-md-3"  th:if="${mode=='NEW'}">
+   <form  th:action="@{/addUser}" th:object="${Newuser}" method="post" id="newuserForm">
+			<fieldset>
+				<legend>Add New Entry</legend>
+				
+					
+					<ul>
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+						
+					</ul>
+				<p>
+				    <input type="hidden" th:field="*{id}" name="ID" />
+					
+				</p>
+					<p>
+					<label for="firstName">First Name : </label> <input id="firstName"  class="form-control mb-2 mb-sm-0"
+						type="text" th:field="*{firstName}" />
+					
+				</p>
+				 
+				<p>
+					<label for="lastName">Last Name  : </label> <input id="lastName" class="form-control mb-2 mb-sm-0"
+						type="text" th:field="*{lastName}"/>
+				</p>
+				<p>
+					<label for="birthdate">Birth Date : </label> <input id="birthdate"  class="form-control mb-2 mb-sm-0"
+						type="text" th:field="*{birthdate}" />
+				</p>
+					<p>
+						<label for="email">Email : </label> <input id="email"
+							class="form-control" type="text" th:field="*{email}" />
+					</p>
+                    <label for="roles">User Type  : </label>
+					<select th:field="*{roles}" multiple="multiple">
+						<option th:each="role : ${userTypeList}" 
+						     th:value="${role.id}"
+						     th:text="${role.role}">User Role
+						     
+						  </option>
+						
+                       </select>
+					<p>
+						<label for="userName">User Name : </label> <input id="userName" class="form-control mb-2 mb-sm-0"
+							type="text" th:field="*{userName}" />
+					</p>
+					<p>
+						<label for="password">Password : </label> <input type="password" class="form-control mb-2 mb-sm-0"
+							id="password"  th:field="*{password}" />
+					</p>
+					<p>
+					<label for="confirmpassword">Confirm password : </label> <input type="password"   class="form-control mb-2 mb-sm-0"
+						  th:field="*{confirmpassword}" />
+				</p>
+				
+				<div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Save"/>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6"></div>
+                        </div>
+			</fieldset>
+			</form>
+			</div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+<script src="/jquery/jquery-3.2.1.min.js"></script>    
+<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/getrequest.js"></script>
+</body>
+</html>

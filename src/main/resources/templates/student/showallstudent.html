@@ -15,7 +15,6 @@
 
     <hr>
     <div class="row">
-        <div class="col-md-4"></div>
         <div class="col-md-4">
 
 <table class="table" align="center">
@@ -26,6 +25,8 @@
         <th> Email </th>
         <th> Address </th>
         <th> Entry </th>
+        <th>Track</th>
+        <th>Nationality</th>
         <th> Actions </th>
     </tr>
     </thead>
@@ -39,6 +40,8 @@
         <td><span th:text="${student.email}"> Email </span></td>
         <td><span th:text="${student.address}"> Address </span></td>
         <td><span th:text="${student.entry}"> Entry </span></td>
+        <td><span th:text="${student.track}"> Track </span></td>
+        <td><span th:text="${student.nationality}"> Nationality </span></td>
         <td><a th:href="@{/students/editstudent/{id}(id=${student.id})}">Edit</a></td>
         <td><a th:href="@{/students/delete/{id}(id=${student.id})}">Delete</a></td>
     </tr>

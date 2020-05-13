@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+ <html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+      <title>Edit Faculty</title>
+<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+
+    <div th:replace="fragments/header :: header-css"></div>
+	<div th:replace="fragments/header :: header"></div>
+	
+ 
+   <div class="container col-md-12" >
+   <form th:action="@{/admin/admin/update}" th:object="${editAdmin}" method="post"  class="form-horizontal">
+			<fieldset>
+				<legend>Admin Personal Detail</legend>
+				  <div class="alert alert-danger alert-dismissable fade in">
+					 
+					<ul>
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+						
+					</ul> 
+					</div>
+		
+				<table class="table">
+				 <tr>
+				  <td><input id="id" type="hidden" th:field="*{id}"/></td>
+				 </tr>
+					<tr>
+					
+						<td><label for="firstName" >First Name : </label></td>
+						<td><input id="firstName" class="form-control mb-2 mb-sm-0"
+							type="text" th:field="*{userProfile.firstName}" /></td>
+						<td><label for="lastName">Last Name : </label></td>
+						<td><input id="lastName" class="form-control mb-2 mb-sm-0"
+							type="text" th:field="*{userProfile.lastName}" /></td>
+						<td><label for="roles">User Role :</label></td>
+						<td><select th:field="*{userProfile.roles}"
+							class="selectpicker" multiple="multiple">
+								<option th:each="role : ${userTypeList}" th:value="${role.id}"
+									th:text="${role.role}">User Role</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td><label for="birthdate">Birth Date :</label></td>
+						<td><input id="birthdate" class="form-control mb-2 mb-sm-0"
+							type="date" th:field="*{userProfile.birthdate}" /></td>
+
+						<td><label for="email">Email : </label></td>
+						<td><input id="email" class="form-control"
+							th:field="*{userProfile.email}" /></td>
+					</tr>
+					<tr>
+					
+						<td><label for="userName">User Name : </label></td>
+						<td><input id="userName" class="form-control mb-2 mb-sm-0"
+							type="text" th:field="*{userProfile.userName}" /></td>
+						<td><label for="password">Password : </label></td>
+						<td><input type="password" class="form-control mb-2 mb-sm-0"
+							id="password" th:field="*{userProfile.password}" /></td>	
+				
+					</tr>
+				</table>
+
+
+				<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<input type="submit" class="btn btn-lg btn-primary btn-block"
+									value="Save" />
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6"></div>
+
+						</div>
+				
+			</fieldset>
+			</form>
+			</div> 
+
+<div th:replace="fragments/footer :: footer"></div>
+<script src="/jquery/jquery-3.2.1.min.js"></script>    
+<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/getrequest.js"></script>
+</body>
+</html>
