@@ -1,0 +1,57 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Mum Schedule</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!--<link rel="stylesheet"-->
+<!--	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />-->
+<!--<link rel="stylesheet"-->
+<!--	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+<!--<script-->
+<!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--<script-->
+<!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+	<div th:replace="fragments/header :: header-css"></div>
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<h4>
+			<a href="/admin/schedule/list"><i class="fa fa-hand-o-up">Schedule
+					List</i></a>
+		</h4>
+		<h2 th:inline="text">Schedule For [[${entry.entryMonth}]] Entry</h2>
+		<br />
+		<div class="table-responsive ">
+			<table class="table table-hover">
+
+				<tr>
+					<th>Block</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Sections Offered</th>
+
+
+				</tr>
+
+				<tr th:each="blocks : ${blocks}">
+					<td th:text="${blocks.blockMonth}">EntryMonth</td>
+					<td th:text="${blocks.blockStartDate}">BlockStartDate</td>
+					<td th:text="${blocks.blockEndDate}">BlockEndDate</td>
+					<td><ul style="list-style: none">
+							<li th:each="section:${blocks.sections}" th:inline="text">[[${section.course.courseDesc}]]
+								([[${section.course.courseCode}]])</li>
+						</ul></td>
+
+
+				</tr>
+
+
+			</table>
+		</div>
+	</div>
+</body>
+</html>

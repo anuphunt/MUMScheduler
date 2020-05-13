@@ -1,0 +1,75 @@
+
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User Registration Form</title>
+ <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+
+	<div id="global">
+	<div class="col-md-3" style="margin-top:20px">
+		<form  th:action="@{/addUser}" th:object="${Newuser}"
+			method="post">
+			<fieldset>
+				<legend>Add New Entry</legend>
+				
+					
+					<ul>
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+						
+					</ul>
+				
+					<p>
+					<label for="firstName">First Name : </label> <input id="firstName"  class="form-control mb-2 mb-sm-0"
+						type="text" th:field="*{firstName}" />
+					
+				</p>
+				 
+				<p>
+					<label for="lastName">Last Name  : </label> <input id="lastName" class="form-control mb-2 mb-sm-0"
+						type="text" th:field="*{lastName}"/>
+				</p>
+				<p>
+					<label for="birthdate">Birth Date : </label> <input id="birthdate"  class="form-control mb-2 mb-sm-0"
+						type="text" th:field="*{birthdate}" />
+				</p>
+					<p>
+						<label for="email">Email : </label> <input id="email"
+							class="form-control" type="text" th:field="*{email}" />
+					</p>
+                    <label for="userType">User Type  : </label>
+					<select th:field="*{userType}">
+						<option th:each="type : ${userTypeList}" 
+						     th:value="${type.id}"
+						     th:text="${type.name}">User Type
+						     
+						  </option>
+						
+                       </select>
+					<p>
+						<label for="userName">User Name : </label> <input id="userName" class="form-control mb-2 mb-sm-0"
+							type="text" th:field="*{userName}" />
+					</p>
+					<p>
+						<label for="password">Password : </label> <input type="password" class="form-control mb-2 mb-sm-0"
+							id="password"  th:field="*{password}" />
+					</p>
+					<p>
+					<label for="confirmpassword">Confirm password : </label> <input type="password"   class="form-control mb-2 mb-sm-0"
+						  th:field="*{confirmpassword}" />
+				</p>
+				
+				<div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Save"/>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6"></div>
+                        </div>
+			</fieldset>
+			</form>
+	</div>
+	</div>
+</body>
+</html>

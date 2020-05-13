@@ -29,20 +29,23 @@ import java.util.List;
     @RequestMapping(value = "courses")
     public class CourseController {
 
-        List<String> prerequisites;
-
         @Autowired
         private ICourseService courseService;
 
         @GetMapping("/addcourse")
         public String getAddCourseForm(Model model) {
-            Course course=new Course();
 
-            prerequisites = Arrays.asList("WAP", "DBMS", "SE");
-            model.addAttribute("prerequisites", prerequisites);
+            Course course=new Course();
             model.addAttribute("course", course);
             return "course/addcourseform";
         }
+
+        //Get Course by course Name
+        public Course getCourseByCourseName(){
+            //implement this
+            return new Course();
+        }
+
 
         @RequestMapping(value = "/addcourse", method = RequestMethod.POST)
         public String addCourse(@ModelAttribute("course") Course course) {

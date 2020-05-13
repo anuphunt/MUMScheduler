@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Manage Course</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--<link rel="stylesheet"-->
+<!--	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+<!--<script-->
+<!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--<script-->
+<!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header-css"></div>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+	<a th:href="@{/admin/course/add}">Add Course</a>
+		<h2>Course Table</h2>
+		<div class="table-responsive ">
+			<table class="table table-hover">
+				<tr>
+					<th>Id</th>
+					<th>Course Name</th>
+					<th>Course Code</th>
+					<th>Pre_Request_Course</th>
+				</tr>
+				<tr th:each="course :${courses}">
+					<td th:text="${course.id}"></td>
+					<td th:text="${course.courseName}"></td>
+					<td th:text="${course.courseCode}"></td>
+
+					<td><span th:if="${course.prerequisite != null}"
+						th:each="course, iterStat : ${course.prerequisite}"
+						th:text="!${iterStat.last} ? ${course.courseName} + ',': ${course.courseName}">
+					</span> <span th:unless="${noPre}">No</span></td>
+					<td><a href="manageuser.html"
+						th:href="@{|/admin/course/delete/${course.id}}"> <span
+							class="glyphicon glyphicon-trash"></span></a></td>
+					<td><a th:href="@{|/admin/course/update/${course.id}}"> <span
+							class="glyphicon glyphicon-pencil"></span></a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

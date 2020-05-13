@@ -18,29 +18,28 @@
                 <form th:action="@{/courses/addcourse}" th:object="${course}" method="post">
                     <label>CourseId:</label><input type="text" class="form-control" th:field="*{courseId}"><br>
                     <label>CourseName:</label><input type="text" class="form-control"  th:field="*{courseName}"><br>
+                    <label>Prerequisites (Separated by Comma):</label>
+                    <input type="text" class="form-control"  th:field="*{prerequisites}"><br>
 
-                    <ul>
-                        <li th:each="prereq: ${prerequisites}">
-                            <div class ="ui checkbox">
-                                <input type ="checkbox" th:field="*{prerequisites}" th:value="${prereq}">
-                                <label
-                                    th:for="${#ids.prev('prerequisites')}"
-                                    th:text="${prereq}"></label>
-<!--                                <label th:text="${prereq}"></label>-->
-                            </div>
-                        </li>
-                    </ul>
+<!--                    <ul>-->
+<!--                        <li th:each="prereq: ${prerequisites}">-->
+<!--                            <div class ="ui checkbox">-->
+<!--                                <input type ="checkbox" th:field="*{prerequisites}" th:value="${prereq}">-->
+<!--                                <label-->
+<!--                                    th:for="${#ids.prev('prerequisites')}"-->
+<!--                                    th:text="${prereq}"></label>-->
+<!--&lt;!&ndash;                                <label th:text="${prereq}"></label>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                    </ul>-->
 
-<!--                    <label>Prerequisites:</label><br>-->
-<!--                    <input type="checkbox" name="prereq" th:field="*{prerequisites}" th:value="WAP" />WAP-->
-<!--                    <input type="checkbox" name="prereq" th:field="*{prerequisites}" th:value="WAP" />SE-->
-<!--                    <input type="checkbox" name="prereq" th:field="*{prerequisites}" th:value="WAP" />DBMS-->
+
                     <label>Block:</label><br>
-                    <label>Start-Date:</label>
 
-                    <input type="date" id="startDate" name="startDate" th:field="*{startDate}"><br>
-                    <label>End-Date:</label>
-                    <input type="date" id="endDate" name="endDate" th:field="*{endDate}"><br><br>
+
+                    <label>Start Date:</label><input type="date" class="form-control" th:field="*{startDate}"><br>
+
+                    <label>End Date:</label><input type="date" class="form-control" th:field="*{endDate}"><br>
 
                     <input type="submit" value="Submit" class="btn btn-primary">
                     <input type="reset" value="Reset" class="btn btn-success">

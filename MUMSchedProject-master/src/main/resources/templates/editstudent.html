@@ -1,0 +1,52 @@
+
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>edit profile Form</title>
+<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+</head>
+<body>
+   <div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/header :: header-css"></div>
+
+	<div id="global">
+	
+	<div class="col-md-3" style="margin-top:20px">
+		<form action="#" th:action="@{/student/updatestudent}" method="post" th:object="${Newstudent}">
+								
+					
+							                    
+				  	<p>
+						<label for="userName">User Name : </label> <input id="userName" class="form-control mb-2 mb-sm-0"
+							type="text" th:field="*{userprofile.userName}"  th:value="*{userprofile.userName}" />
+					</p>
+					<p>
+						<label for="password">Password : </label> <input type="password" class="form-control mb-2 mb-sm-0"
+							id="password" th:field="*{userprofile.password}" th:value="*{userprofile.password}" />
+					</p>
+					<p>
+					<label for="confirmpassword">Confirm password : </label> <input type="password"   class="form-control mb-2 mb-sm-0"
+					 	  th:field="*{userprofile.confirmpassword}"  th:value="*{userprofile.confirmpassword}" />
+				</p>
+				    <p>
+						<label for="email">Email : </label> <input id="email"
+							class="form-control" type="text" th:field="*{userprofile.email}" th:value="*{userprofile.email}" />
+					</p>  -->
+				
+				<div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Save"/>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6"></div>
+                        </div>
+			
+			</form>
+	</div>
+	</div>
+</body>
+</html>

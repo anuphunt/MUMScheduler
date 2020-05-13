@@ -16,7 +16,7 @@
 
             <div class="form-group">
                 <form action="#" th:action="@{/block/addblock}" th:object="${block}" method="post">
-                    <label>Block ID:</label><input type="text" class="form-control" th:field="*{blockID}"><br>
+                    <label>Block Name</label><input type="text" class="form-control" th:field="*{blockName}"><br>
                     <label>No. of FPP Students:</label><input type="number" class="form-control"  th:field="*{FPPNum}"><br>
                     <label>No. of MPP Students:</label><input type="number" class="form-control" th:field="*{MPPNum}"><br>
                     <label>Start Date:</label><input type="date" class="form-control" th:field="*{startDate}"><br>

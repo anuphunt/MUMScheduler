@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<script
+<!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
+<meta charset="ISO-8859-1" />
+
+<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" th:crossorigin="anonymous" />-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" th:crossorigin="anonymous" />-->
+<!--<link rel="stylesheet"  href="style.css" />-->
+<!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" th:crossorigin="anonymous"></script>-->
+<!--<title>Add Entry Page</title>-->
+<!--<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />-->
+</head>
+<body>
+	<div th:replace="fragments/header :: header"> </div>
+	
+			<div class="addForm">
+			<h1>Add Entry</h1>
+			<hr />
+						<form method="post" action="/admin/addEntry" modelAttribute="entry">
+						<div class="form-group mainContainer1">
+							<label for="entryMonth">Entry Month</label>
+							
+							<input type="text" name="entryMonth" class="form-control" placeholder="Entry Month" />
+							<br></br>
+							
+							<label for="numOfMpp">Number of MPP</label>
+							<input type="number" name="numOfMpp" class="form-control" placeholder="Number of Fpp" />
+							<br></br>
+							
+							<label for="numOfFpp">Number of FPP</label>
+							<input type="number" name="numOfFpp" class="form-control" placeholder="Number of MPP" />
+							<br></br>
+							
+							<label for="numOfFppOpt">Number of FPP OPT Students</label>
+							<input type="number" name="numOfFppOpt" class="form-control" placeholder="Number of Fpp OPT" />
+							<br></br>
+							
+							<label for="numOfMppOpt">Number of MPP OPT Students</label>
+							<input type="number" name="numOfMppOpt" class="form-control" placeholder="Number of Mpp Opt" />
+							<br></br>
+							
+							<label for="numOfUSstudents">Number of US Students</label>
+							<input type="number" name="numOfUSstudents" class="form-control" placeholder="Number of US Students" />
+							<br></br>
+							<button class="btn btn-primary" type="submit">Save</button>
+						</div>	
+						</form> 
+				</div>		
+</body>
+</html>

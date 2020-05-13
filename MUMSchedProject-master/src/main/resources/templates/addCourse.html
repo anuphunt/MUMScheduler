@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+ <html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+  <title>Manage Course</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--<link rel="stylesheet"-->
+<!--	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+<!--<script-->
+<!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--<script-->
+<!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header-css"></div>
+	<div th:replace="fragments/header :: header"></div>
+ 
+ 
+   <div class="container col-md-12" >
+<<<<<<< HEAD
+   <a th:href="@{/admin/course/add}">Add Course</a>
+   <!-- th:action="@{admin/course/add}" -->
+   
+   <form  th:object="${newCourse}" method="post"  class="form-horizontal">
+
+			<fieldset >
+				<legend>Course Detail</legend>
+				  <div class="alert alert-danger alert-dismissable fade in">
+					 
+					<ul>
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+						
+					</ul> 
+					</div>
+			     <input type="hidden"  th:field="*{id}" />
+				<table class="table">
+					<tr>
+						<td><label for="courseCode">Course Code : </label></td>
+						<td><input id="courseCode" class="form-control mb-2 mb-sm-0"
+							type="text" th:field="*{courseCode}" /></td>
+
+						<td><label for="courseName">Course Name : </label></td>
+						<td><input id="courseName" class="form-control mb-2 mb-sm-0"
+							type="text" th:field="*{courseName}" /></td>
+						
+						<td><label for="courseDesc">Course Description : </label></td>
+						<td><input id="courseDesc" class="form-control mb-2 mb-sm-0"
+							type="text" th:field="*{courseDesc}" /></td>
+					 
+					</tr>
+					<tr>
+						<td><label for="prerequisite">Prerequisite Course :</label></td>
+						<td><select th:field="*{prerequisite}" class="selectpicker"
+							multiple="multiple">
+								<option th:each="course: ${courseList}" th:value="${course.id}"
+									th:text="${course.courseName}"></option>
+						</select></td>
+						<td><label for="courseArea">Course Area :</label></td>
+						<td><select th:field="*{courseArea}" class="selectpicker">
+								<option th:each="area : ${areaList}" th:value="${area.id}"
+									th:text="${area.specalization}"></option>
+						</select></td>
+
+					</tr>
+
+				</table>
+
+				<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<input type="submit" class="btn btn-lg btn-primary btn-block"
+									value="Save" />
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6"></div>
+
+						</div>
+				
+
+			</fieldset>
+			</form>
+			</div> 
+
+<div th:replace="fragments/footer :: footer"></div>
+<script src="/jquery/jquery-3.2.1.min.js"></script>    
+<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/getrequest.js"></script>
+</body>
+</html>

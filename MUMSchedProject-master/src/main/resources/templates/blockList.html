@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<!--<script-->
+<!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
+
+
+<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" th:crossorigin="anonymous" />-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" th:crossorigin="anonymous" />-->
+<!--<link rel="stylesheet"  href="style.css" />-->
+<!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" th:crossorigin="anonymous"></script>-->
+
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+<meta charset="ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"> </div>
+<div class="mainContainer">
+							<form method="post" action="/admin/addBlockForm">
+					        	<input name="id"  type="hidden" th:value="${entry.id}" />
+					        	<input class="btn btn-primary" type="submit" value="Add Block" />
+					        	
+					        </form>
+			<table class="table">
+		    		
+				      <tr>
+				        <th>Block Month</th>
+				        <th>Block Start Date</th>
+				        <th>Block End Date</th>
+				        <th>No of Students</th>
+				        <th>block priority</th>
+				      </tr>
+				  
+			    	<tr th:each="block: ${blocks}">
+			    		<td th:text="${block.blockMonth}"></td>
+			    		<td th:text="${block.blockStartDate}"></td>
+			    		<td th:text="${block.blockEndDate}"></td>
+			    		<td th:text="${block.numOfStudents}"></td>
+			    		<td th:text="${block.blockOrder}"></td>
+			    		<td>
+			    			<div class="buttonDiv">
+						        <form method="post" action="/admin/deleteBlock">
+						        	<input name="id"  type="hidden" th:value="${block.id}" />
+						        	<input name="entry_id"  type="hidden" th:value="${entry.id}" />
+						        	<input class="btn btn-danger" type="submit" value="Delete" />
+						        </form>
+					        </div>
+					     </td>
+				       	<td>
+					        <div class="buttonDiv">
+						        <form method="post" action="/admin/findBlock">
+						        	<input name="id"  type="hidden" th:value="${block.id}" />
+						        	<input name="entry_id"  type="hidden" th:value="${entry.id}" />
+						        	<input class="btn btn-primary" type="submit" value="Update" />
+						        </form>
+					        </div>
+			       		 </td>
+			       		 <td>
+					        <div class="buttonDiv">
+						        <form method="post" action="/admin/listSections">
+						        	<input name="block_id"  type="hidden" th:value="${block.id}" />
+						        	<input name="entry_id"  type="hidden" th:value="${entry.id}" />
+						        	<input class="btn btn-primary" type="submit" value="Sections" />
+						        </form>
+					        </div>
+			       		 </td>       
+			    	</tr>	
+		    	</table>
+</div>		    		
+</body>
+</html>

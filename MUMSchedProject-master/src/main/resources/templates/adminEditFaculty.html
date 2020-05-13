@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Edit Faculty</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--<link rel="stylesheet"-->
+<!--	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+<!--<script-->
+<!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--<script-->
+<!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<!--<link th:href="@{css/main.min.css}" rel="stylesheet" />-->
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header-css"></div>
+	<div th:replace="fragments/header :: header"></div>
+	<div>
+		<form th:action="@{/admin/faculty/edit}" th:object="${newFaculty}"
+			method="post" class="form-horizontal" id="editForm">
+
+			<div class="alert alert-danger alert-dismissable fade in">
+
+				<ul>
+					<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+
+				</ul>
+			</div>
+       <div class="container col-md-6">
+			<p>
+				<input type="hidden" th:field="*{id}" name="ID" />
+				<input type="hidden" th:field="*{userProfile.id}" name="ID" />
+
+			</p>
+			<div sec:authorize="hasRole('ROLE_Admin')">
+
+				<p>
+					<label for="firstName">First Name : </label> <input id="firstName"
+						class="form-control mb-2 mb-sm-0" type="text"
+						th:field="*{userProfile.firstName}" />
+				
+					<label for="lastName">Last Name : </label> <input id="lastName"
+						class="form-control mb-2 mb-sm-0" type="text"
+						th:field="*{userProfile.lastName}" />
+				</p>
+				<p>
+					<label for="roles">User Role :</label> <select
+						th:field="*{userProfile.roles}" class="selectpicker"
+						multiple="multiple">
+						<option th:each="role : ${userTypeList}" th:value="${role.id}"
+							th:text="${role.role}">User Role</option>
+					</select>
+					<label for="specializations">Specializations :</label> <select
+					th:field="*{specializations}" class="selectpicker"
+					multiple="multiple">
+					<option th:each="special : ${specializations}"
+						th:value="${special.id}" th:text="${special.specalization}">specializations</option>
+				</select>
+
+				<label for="course"> Courses :</label> <select th:field="*{course}"
+					class="selectpicker" multiple="multiple">
+					<option th:each="course : ${courseList}" th:value="${course.id}"
+						th:text="${course.courseName}">specializations</option>
+				</select>
+				</p>
+				<p>
+					<label for="birthdate">Birth Date :</label> <input id="birthdate"
+						class="form-control mb-2 mb-sm-0" type="date"
+						th:field="*{userProfile.birthdate}" />
+				</p>
+
+			</div>
+			<p>
+
+				<label for="email">Email : </label> <input id="email"
+					class="form-control" th:field="*{userProfile.email}" />
+			</p>
+			<p>
+				<label for="userName">User Name : </label> <input id="userName"
+					class="form-control mb-2 mb-sm-0" type="text"
+					th:field="*{userProfile.userName}" />
+			</p>
+			<p>
+				<label for="password">Password : </label> <input type="password"
+					class="form-control mb-2 mb-sm-0" id="password"
+					th:field="*{userProfile.password}" />
+			</p>
+
+			
+				<p>
+					<input type="submit" class="btn btn-lg btn-primary btn-block"
+						id="btnPersonal" value="Add" />
+				</p>
+   </div>
+	</form>
+</div>
+
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

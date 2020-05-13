@@ -1,0 +1,51 @@
+
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add Role</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--<link rel="stylesheet"-->
+<!--	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+<!--<script-->
+<!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--<script-->
+<!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<!--<link th:href="@{css/main.min.css}" rel="stylesheet" />-->
+ 
+</head>
+<body>
+<div th:replace="fragments/header :: header-css"></div>
+<div th:replace="fragments/header :: header"></div>
+
+	<div id="global">
+	<div class="col-md-3" style="margin-top:20px">
+		<form  th:action="@{/admin/specialization/update}" th:object="${editedSpecial}" method="post">
+			<fieldset>
+				<legend>Add Specialization</legend>
+				
+					
+				 	<!-- <ul>
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+						
+					</ul>
+				  -->
+				 <input type="hidden" th:field="*{id}" name="ID" />
+					<p>
+					<label for="specalization">Specialization : </label> <input id="specalization"  class="form-control mb-2 mb-sm-0"
+						type="text" th:field="*{specalization}" />
+					
+				</p>
+				 
+				<div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Save"/>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6"></div>
+                        </div>
+			</fieldset>
+			</form>
+	</div>
+	</div>
+</body>
+</html>

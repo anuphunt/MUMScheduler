@@ -1,0 +1,53 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+.entrys {
+	width: 50%;
+}
+</style>
+<title>Mum Schedule</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--<link rel="stylesheet"-->
+<!--	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+<!--<link rel="stylesheet"-->
+<!--	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />-->
+<!--<script-->
+<!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--<script-->
+<!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+	<div th:replace="fragments/header :: header-css"></div>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<h4>
+			<a href="/admin/schedule/list"><i class="fa fa-hand-o-up">Schedule
+					List</i></a>
+		</h4>
+		<br />
+		<h4>
+			Schedule <small> <i class="ace-icon fa fa-angle-double-right">Create</i>
+			</small>
+		</h4>
+		<hr />
+		<div class="well form-group">
+			<form action="#" th:action="@{/admin/schedule/create}" method="post">
+				<div class="entrys">
+					Select Entry <br /> <br /> <select class="form-control"
+						name="entry">
+
+						<option th:each="entry : ${entries}"
+							th:value="${entry.entryMonth}" th:text="${entry.entryMonth}">Option</option>
+
+					</select>
+				</div>
+				<br /> <br /> <input class="btn btn-primary" type="submit"
+					value="CreateSchedule" />
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+

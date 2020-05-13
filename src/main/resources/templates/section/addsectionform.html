@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MUMShed</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Section Form</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <form action="#" th:action="@{/section/addsection}" th:object="${section}" method="post">
+                    <label>Section ID:</label><input type="text" class="form-control" th:field="*{id}"><br>
+                    <label>Course:</label><input type="text" class="form-control"  th:field="*{course}"><br>
+                    <label>Block:</label><input type="text" class="form-control" th:field="*{block}"><br>
+                    <br>
+                    <input type="submit" value="Save" class="btn btn-primary"> &nbsp;<input type="reset" value="Reset" class="btn btn-success">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

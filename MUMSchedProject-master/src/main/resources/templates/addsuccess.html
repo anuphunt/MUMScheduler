@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<!--<script-->
+<!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
+
+
+<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" th:crossorigin="anonymous" />-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" th:crossorigin="anonymous" />-->
+<!--<link rel="stylesheet"  href="style.css" />-->
+<!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" th:crossorigin="anonymous"></script>-->
+
+
+<meta charset="ISO-8859-1" />
+<title>view Sections registered</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<h1>Your List of registered Courses</h1>
+<div id="msg"><h2 th:text="${message}"></h2></div>
+<div th:replace="fragments/header :: header"> </div>
+<div class="mainContainer">
+	<!-- <button class="btn btn-primary" onclick="location.href='student/register'">Register</button> -->
+	<table class="table">
+			<tr>
+				    <th>Entry Month</th>
+				    <th>Section code</th>
+				    <th>Course name</th>
+				    <!-- <th>Faculty</th> -->
+				 
+			</tr>	    
+			<tr th:each="section :${sections}">	
+			        <td th:text="${section.block.blockMonth}">1 </td>
+			
+			        <td th:text="${section.sectionCode}">Title ...</td>
+			        <td th:text="${section.course.courseName}">Text ...</td>
+			        <!-- <td th:text="${section.faculty.userProfile.firstName}">Text ...</td> -->
+			       
+	
+			  
+		   </tr>
+	</table>	  
+</div>
+ 	<script> 
+$(document).ready(function(){ 
+
+$("#msg").hide().html("Success").fadeIn("slow"); 
+$("#msg").fadeOut("slow",function(){ 
+/* $("#msg").html("You will now be re-directed").fadeIn("slow");  */
+$("#msg").fadeOut("slow"); 
+/* setTimeout("location.href = 'http://elp7.com/';",2500);  */
+
+}); 
+}); 
+</script> 	
+</body>
+</html>

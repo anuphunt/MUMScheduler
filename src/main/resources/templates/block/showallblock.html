@@ -25,7 +25,7 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
-                <th>Block ID</th>
+                <th>Block Name</th>
                 <th>Entry</th>
                 <th>FPP Students</th>
                 <th>MPP Students</th>
@@ -37,7 +37,7 @@
 
         <tbody>
             <tr th:each="block: ${blocks}">
-                <td th:text="${block.blockID}"></td>
+                <td th:text="${block.blockName}"></td>
                 <td th:text="${block.entryName}"></td>
                 <td th:text="${block.FPPNum}"></td>
                 <td th:text="${block.MPPNum}"></td>
