@@ -40,4 +40,9 @@ public class StudentServiceImpl implements IStudentService {
     public Student update(Student student, String id) {
         return dao.update(student, id);
     }
+
+    @Override
+    public Student getStudentByUsername(String username) {
+        return dao.getStudentByUsername(username);
+    }
 }
