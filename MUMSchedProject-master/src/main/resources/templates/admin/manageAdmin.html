@@ -11,28 +11,29 @@
 </head>
 <body>
 		<div class="container">
-		<a th:href="@{/admin/special/add}">Add Specialization</a>
-        <h2> Manage Specialization </h2>
+		<a th:href="@{/admin/admin/add}">Add Admin</a>
+        <h2>Manage Admin</h2>
 		<div class="table-responsive ">
 			<table class="table table-hover">
 				<tr>
-					<th>Specialization ID</th>
-					<th>Specialization Name</th>
-					<!-- <th>Role Description</th> -->
+					<th>Id</th>
+					<th>First Name</th>
+					<th>Last Name</th>
 				</tr>
-				<tr th:each="special :${SpecialList}">
-					<td th:text="${special.id}"></td>
-					<td th:text="${special.specalization}"></td>
-					<!-- <td th:text="${role.description}"></td> -->
+				<tr th:each="admin :${adminList}">
+					<td th:text="${admin.userProfile.id}"></td>
+					<td th:text="${admin.userProfile.firstName}"></td>
+					<td th:text="${admin.userProfile.lastName}"></td>
 					<td>
-					<a	href="manageuser.html" th:href="@{|/admin/specialization/delete/${special.id}}"> 
+					<a href="../manageuser.html" th:href="@{|/admin/admin/delete/${admin.id}}">
 					         <span class="glyphicon glyphicon-trash"></span></a></td>
 					<td>
-					<a th:href="@{|/admin/specialization/update/${special.id}}"> <span
+					<a th:href="@{|/admin/admin/update/${admin.id}}"> <span
 							class="glyphicon glyphicon-pencil"></span></a></td>
 				</tr>
 			</table> 
 		</div>
 	</div>
+	<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

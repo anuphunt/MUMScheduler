@@ -33,7 +33,7 @@
 						th:each="course, iterStat : ${course.prerequisite}"
 						th:text="!${iterStat.last} ? ${course.courseName} + ',': ${course.courseName}">
 					</span> <span th:unless="${noPre}">No</span></td>
-					<td><a href="manageuser.html"
+					<td><a href="../manageuser.html"
 						th:href="@{|/admin/course/delete/${course.id}}"> <span
 							class="glyphicon glyphicon-trash"></span></a></td>
 					<td><a th:href="@{|/admin/course/update/${course.id}}"> <span

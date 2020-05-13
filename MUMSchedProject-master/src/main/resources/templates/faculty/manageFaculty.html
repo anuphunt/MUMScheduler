@@ -27,7 +27,7 @@
 					<td th:text="${faculty.userProfile.firstName}"></td>
 					<td th:text="${faculty.userProfile.lastName}"></td>
 					<td>
-					<a	href="manageuser.html" th:href="@{|/admin/faculty/delete/${faculty.id}}"> 
+					<a href="../manageuser.html" th:href="@{|/admin/faculty/delete/${faculty.id}}">
 					         <span class="glyphicon glyphicon-trash"></span></a></td>
 					<td>
 					<a th:href="@{|/admin/faculty/update/${faculty.id}}"> <span
