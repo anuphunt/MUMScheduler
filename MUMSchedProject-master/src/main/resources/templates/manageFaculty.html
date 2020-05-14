@@ -35,17 +35,20 @@
 					<th>Id</th>
 					<th>First Name</th>
 					<th>Last Name</th>
+					<th>Actions</th>
 				</tr>
 				<tr th:each="faculty :${faculties}">
 					<td th:text="${faculty.userProfile.id}"></td>
 					<td th:text="${faculty.userProfile.firstName}"></td>
 					<td th:text="${faculty.userProfile.lastName}"></td>
-					<td>
-					<a	href="manageuser.html" th:href="@{|/admin/faculty/delete/${faculty.id}}"> 
-					         <span class="glyphicon glyphicon-trash"></span></a></td>
-					<td>
-					<a th:href="@{|/admin/faculty/update/${faculty.id}}"> <span
-							class="glyphicon glyphicon-pencil"></span></a></td>
+					<td><a th:href="@{/admin/faculty/update/{id}(id=${faculty.id})}" class="btn btn-primary">Edit</a></td>
+
+					<td><a th:href="@{/admin/faculty/delete/{id}(id=${faculty.id})}" class="btn btn-danger">Delete</a></td>
+
+<!--					<a	href="manageuser.html" th:href="@{/admin/faculty/delete/${faculty.id}}" class="btn btn-primary">-->
+<!--					         Delete</a></td>-->
+<!--					<td>-->
+<!--					<a th:href="@{/admin/faculty/update/${faculty.id}}" class="btn btn-primary"> Edit </a></td>-->
 				</tr>
 			</table> 
 		</div>
