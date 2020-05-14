@@ -48,9 +48,10 @@ INSERT INTO specialization (id, specalization) VALUES (3,'DB');
 
 INSERT INTO faculty_specializations (faculty_id, specializations_id) VALUES (9,1);
 
-INSERT INTO entry (id, entry_month, num_of_fpp, num_of_mpp, num_ofusstudents, num_of_fpp_opt, num_of_mpp_opt) VALUES (1,'October',50,50,100,0,0);
+INSERT INTO entry (id, entry_month, num_of_fpp, num_of_mpp, num_ofusstudents, num_of_fpp_opt, num_of_mpp_opt) VALUES (1,'November',50,50,100,0,0);
 INSERT INTO entry (id, entry_month, num_of_fpp, num_of_mpp, num_ofusstudents, num_of_fpp_opt, num_of_mpp_opt) VALUES (2,'February',50,50,100,0,0);
-INSERT INTO entry (id, entry_month, num_of_fpp, num_of_mpp, num_ofusstudents, num_of_fpp_opt, num_of_mpp_opt) VALUES (3,'August',50,50,100,0,0);
+INSERT INTO entry (id, entry_month, num_of_fpp, num_of_mpp, num_ofusstudents, num_of_fpp_opt, num_of_mpp_opt) VALUES (3,'May',50,50,100,0,0);
+INSERT INTO entry (id, entry_month, num_of_fpp, num_of_mpp, num_ofusstudents, num_of_fpp_opt, num_of_mpp_opt) VALUES (4,'August',50,50,100,0,0);
 
 INSERT INTO block (id, block_end_date, block_month, block_start_date, entry_id, block_order, num_of_students) VALUES (3,'2017-11-30','November','2017-11-01',1,0,100);
 INSERT INTO block (id, block_end_date, block_month, block_start_date, entry_id, block_order, num_of_students) VALUES (4,'2017-01-30','December','2017-01-01',1,1,100);

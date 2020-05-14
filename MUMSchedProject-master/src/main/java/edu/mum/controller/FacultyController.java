@@ -55,32 +55,32 @@ public class FacultyController {
 
 	@PreAuthorize("hasAnyRole('ROLE_Admin')")
 	@PostMapping(value = "/admin/faculty/add")
-	public String saveFaculty(@Valid @ModelAttribute("newFaculty") Faculty faculty, BindingResult error, Model model) {
-		System.out.println("admin add");
-		if (error.hasErrors()) {
-			if (!model.containsAttribute("specializations")) {
-				model.addAttribute("specializations", specializationsService.findAllspecalization());
-			}
-			if (!model.containsAttribute("userTypeList")) {
-				model.addAttribute("userTypeList", roleService.getAll());
-			}
-			if (!model.containsAttribute("courseList")) {
-				model.addAttribute("courseList", courseService.getAllCourser());
-			}
+	public String saveFaculty(@ModelAttribute("newFaculty") Faculty faculty, BindingResult error, Model model) {
+////		System.out.println("admin add");
+//		if (error.hasErrors()) {
+//			if (!model.containsAttribute("specializations")) {
+//				model.addAttribute("specializations", specializationsService.findAllspecalization());
+//			}
+//			if (!model.containsAttribute("userTypeList")) {
+//				model.addAttribute("userTypeList", roleService.getAll());
+//			}
+//			if (!model.containsAttribute("courseList")) {
+//				model.addAttribute("courseList", courseService.getAllCourser());
+//			}
+//
+//			return "adminEditFaculty";
+//		}
 
-			return "adminEditFaculty";
-		}
-
-		System.out.println("before");
-		faculty.getUserProfile().setUserStatus("Active");
-		System.out.println("faculty" + faculty.getUserProfile().getFirstName());
+//		System.out.println("before");
+//		faculty.getUserProfile().setUserStatus("Active");
+//		System.out.println("faculty" + faculty.getUserProfile().getFirstName());
+//
+//		System.out.println(faculty.getCourse().get(1));
 		
-		System.out.println(faculty.getCourse().get(1));
-		
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		faculty.getUserProfile().setPassword(passwordEncoder.encode(faculty.getUserProfile().getPassword()));
+//		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//		faculty.getUserProfile().setPassword(passwordEncoder.encode(faculty.getUserProfile().getPassword()));
 
-		System.out.println("password string:  " + passwordEncoder.encode(faculty.getUserProfile().getPassword()));
+//		System.out.println("password string:  " + passwordEncoder.encode(faculty.getUserProfile().getPassword()));
 		
 		facultyService.saveFaculty(faculty);
 
@@ -105,24 +105,24 @@ public class FacultyController {
 	}
 
 	@PostMapping(value = "/admin/faculty/edit")
-	public String editFaculty(@Valid @ModelAttribute("newFaculty") Faculty faculty, BindingResult error, Model model) {
-		if (error.hasErrors()) {
-			if (!model.containsAttribute("specializations")) {
-				model.addAttribute("specializations", specializationsService.findAllspecalization());
-			}
-			if (!model.containsAttribute("userTypeList")) {
-				model.addAttribute("userTypeList", roleService.getAll());
-			}
-			if (!model.containsAttribute("courseList")) {
-				model.addAttribute("courseList", courseService.getAllCourser());
-			}
+	public String editFaculty(@ModelAttribute("newFaculty") Faculty faculty, BindingResult error, Model model) {
+//		if (error.hasErrors()) {
+//			if (!model.containsAttribute("specializations")) {
+//				model.addAttribute("specializations", specializationsService.findAllspecalization());
+//			}
+//			if (!model.containsAttribute("userTypeList")) {
+//				model.addAttribute("userTypeList", roleService.getAll());
+//			}
+//			if (!model.containsAttribute("courseList")) {
+//				model.addAttribute("courseList", courseService.getAllCourser());
+//			}
+//
+//			return "adminEditFaculty";
+//		}
 
-			return "adminEditFaculty";
-		}
 
-
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		faculty.getUserProfile().setPassword(passwordEncoder.encode(faculty.getUserProfile().getPassword()));
+//		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//		faculty.getUserProfile().setPassword(passwordEncoder.encode(faculty.getUserProfile().getPassword()));
         faculty.setUserProfile(faculty.getUserProfile());
 		facultyService.saveFaculty(faculty);
 		return "redirect:/admin/faculty/all";
@@ -169,15 +169,15 @@ public class FacultyController {
 	@PostMapping("/faculty/updatePersonaInfo")
 	public String saveUpdateFacultyProfile(@Valid @ModelAttribute("newFaculty") Faculty editedFaculty,
 			BindingResult error, Model model) {
-		System.out.println("POST");
-		if (error.hasErrors()) {
-
-			return "editFaculty";
-		}
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//		System.out.println("POST");
+//		if (error.hasErrors()) {
+//
+//			return "editFaculty";
+//		}
+//		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		Faculty faculty = facultyService.getFacultyByUserProfile(userProfileService.LoggedInUser());
 		faculty.getUserProfile().setUserName(editedFaculty.getUserProfile().getUserName());
-		faculty.getUserProfile().setPassword(passwordEncoder.encode(editedFaculty.getUserProfile().getPassword()));
+		faculty.getUserProfile().setPassword(editedFaculty.getUserProfile().getPassword());
 		faculty.getUserProfile().setEmail(editedFaculty.getUserProfile().getEmail());
 		facultyService.saveFaculty(faculty);
 		return "redirect:/home";
