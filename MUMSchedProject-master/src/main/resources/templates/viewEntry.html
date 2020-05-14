@@ -56,7 +56,7 @@
 				<td><a th:href="@{/admin/updateEntry/{id}(id=${entry.id})}" class="btn btn-info btn-sm">
 					Update
 				</a></td>
-				<td><a th:href="@{/admin/deleteEntry/{id}(id=${entry.id})}"
+				<td><a th:href="@{/admin/deleteEntry(id=${entry.id})}"
 					   class="btn btn-danger btn-sm"
 					   onclick="if (!(confirm('Are you sure you want to delete this entry?'))) return false">
 					Delete</a></td>

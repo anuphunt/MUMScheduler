@@ -28,7 +28,7 @@ INSERT INTO user_profile (id, birthdate, email, first_name, is_active, last_name
 INSERT INTO user_profile (id, birthdate, email, first_name, is_active, last_name, password, user_name, user_status) VALUES (37,'2017-10-09','obina@mum.edu','Obinamakito',0,'makitoma','$2a$10$/TWwhDhUkvffVBjgGVBQRObnS7gRSUikpMndApVY5njckxSKQcIxu','obina',NULL);
 INSERT INTO user_profile (id, birthdate, email, first_name, is_active, last_name, password, user_name, user_status) VALUES (38,'1950-10-02','levie@mum.edu','Levie',0,'Levie','$2a$10$a19zFVXFen/5mzpVFqrklOg50gpryat.zSHssdV/fycwx44iU2U/6','levie',NULL);
 INSERT INTO user_profile (id, birthdate, email, first_name, is_active, last_name, password, user_name, user_status) VALUES (39,'1990-12-12','selam@gmail.com','Promila',0,'Sakiiolo','$2a$10$ycWcQbJKBvU3sjmBLKtU5.XIID3C/vGmt0FQGN9kL/Hw4q8UzSEbO','promila',NULL);
-INSERT INTO user_profile (id, birthdate, email, first_name, is_active, last_name, password, user_name, user_status) VALUES (2, '1996-11-21', 'ayush@miu.edu', 'Ayush', 0, 'Bhattarai', 'student', 'student', 'Active');
+-- INSERT INTO user_profile (id, birthdate, email, first_name, is_active, last_name, password, user_name, user_status) VALUES (2, '1996-11-21', 'ayush@miu.edu', 'Ayush', 0, 'Bhattarai', 'student', 'student', 'Active');
 
 INSERT INTO role (id, description, role) VALUES (1,'Admin','Admin');
 INSERT INTO role (id, description, role) VALUES (2,'Faculty','Faculty');
@@ -193,5 +193,5 @@ INSERT INTO faculty_specializations (faculty_id, specializations_id) VALUES (19,
 INSERT INTO faculty_specializations (faculty_id, specializations_id) VALUES (23,1);
 INSERT INTO faculty_specializations (faculty_id, specializations_id) VALUES (7,1);
 
-INSERT INTO student(id, degree, field, id_number, entry_id, userprofile_id) VALUES (1, 'Bsc.', 'ComputerScience', '611109', 1, 2);
+-- INSERT INTO student(id, degree, field, id_number, entry_id, userprofile_id) VALUES (1, 'Bsc.', 'ComputerScience', '611109', 1, 2);
 

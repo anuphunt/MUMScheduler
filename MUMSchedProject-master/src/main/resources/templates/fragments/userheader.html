@@ -17,12 +17,10 @@
     </div>
     <nav class="navbar navbar-default">
         <div class="topnav">
-
-
             <a th:href="@{/studentprofile/{id}(student=${student.userprofile.id})}">Home</a>
             <a th:href="@{/studentprofile/details/{id}(username=${student.userprofile.id})}">Profile</a>
+            <a th:href="@{/student/register}">Register For Courses</a>
             <a th:href="@{/logout}">Logout</a>
-
         </div>
 
     </nav>
