@@ -18,9 +18,18 @@
 <!--<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />-->
 <meta charset="ISO-8859-1" http-equiv="Content-Type"/>
 <title>Add Section Page</title>
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
 
 </head>
 <body>
+<div th:replace="fragments/adminheader :: adminheader"></div>
+
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
 	<div class="addForm">
 	<h1>Add Section</h1>
 	<hr />

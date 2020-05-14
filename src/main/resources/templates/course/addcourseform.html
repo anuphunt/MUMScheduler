@@ -7,6 +7,26 @@
 
 </head>
 <body>
+
+
+<div class="container col-md-12" >
+    <a th:href="@{/admin/course/add}">Add Course</a>
+    <!-- th:action="@{admin/course/add}" -->
+
+    <form  th:object="${newCourse}" method="post"  class="form-horizontal">
+
+        <fieldset >
+            <legend>Course Detail</legend>
+            <div class="alert alert-danger alert-dismissable fade in">
+
+                <ul>
+                    <li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+
+                </ul>
+            </div>
+            <input type="hidden"  th:field="*{id}" />
+
+
 <div class="container">
     <h1 class="text-center">Add Courses Form</h1>
     <hr>
