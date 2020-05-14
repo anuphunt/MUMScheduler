@@ -6,6 +6,8 @@
       <title>add student</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
 <!--<link rel="stylesheet"-->
 <!--	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
 <!--<script-->
@@ -14,9 +16,15 @@
 <!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 </head>
 <body>
- 
- 
-   <div class="container col-md-12" >
+
+
+<div th:replace="fragments/adminheader :: adminheader"></div>
+
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
    <form  th:action="@{/admin/student/update}" th:object="${editStudent}" method="post"  class="form-horizontal">
 			<fieldset >
 				<legend>Student Personal Detail</legend>
@@ -102,7 +110,9 @@
 			</fieldset>
 			</form>
 			</div> 
-
+		</div>
+	</div>
+</div>
 <!--<script src="/jquery/jquery-3.2.1.min.js"></script>    -->
 <!--<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>-->
 <!--<script src="/js/getrequest.js"></script>-->

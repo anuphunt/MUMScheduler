@@ -32,6 +32,9 @@ public class LoginController {
         if (userProfileService.LoggedInUser().getUserName().equals("admin")) {
             return "redirect:/dashboard";
         }
+        else if(userProfileService.LoggedInUser().getUserName().equals("student")){
+            return "redirect:/student";
+        }
         return "home";
     }
 

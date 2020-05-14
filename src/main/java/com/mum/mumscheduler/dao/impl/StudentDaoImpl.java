@@ -29,7 +29,7 @@ public class StudentDaoImpl implements IStudentDao {
 
     @Override
     public Optional<Student> getStudentById(String id) {
-        return studentRepository.findById(id);
+        return studentRepository.getStudentById(id);
     }
 
     @Override
@@ -52,5 +52,10 @@ public class StudentDaoImpl implements IStudentDao {
            return student1;
        }
        else return null;
+    }
+
+    @Override
+    public Student getStudentByUsername(String username) {
+        return studentRepository.getStudentByUsername(username);
     }
 }

@@ -3,23 +3,19 @@ package edu.mum.controller;
 import java.sql.Date;
 import java.util.List;
 
+import edu.mum.domain.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 import edu.mum.domain.Block;
 import edu.mum.domain.Entry;
 import edu.mum.service.BlockService;
 import edu.mum.service.EntryService;
-
-
-
 
 @Controller
 @RequestMapping("/admin")
@@ -38,8 +34,16 @@ public class BlockController {
 		
 		return "loginPage";
 	}
-	
-	
+
+	@GetMapping({"/addBlockForm"})
+	public String addBlockForm(@ModelAttribute("block") Block Block, Model model)
+	{
+//		model.addAttribute("courseList",courseService.getAllCourser());
+//		model.addAttribute("areaList",specializationsService.findAllspecalization());
+		return "addBlock";
+
+	}
+
 	@RequestMapping(value= {"/addBlockForm"},method=RequestMethod.POST)
 	public  String saveBlockForm(@RequestParam String id, Model model){
 		

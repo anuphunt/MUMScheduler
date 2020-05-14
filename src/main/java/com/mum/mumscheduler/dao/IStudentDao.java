@@ -11,4 +11,5 @@ public interface IStudentDao {
     Student add(Student student);
     Student update(Student student, String id);
     void delete(String id);
+    Student getStudentByUsername(String username);
 }

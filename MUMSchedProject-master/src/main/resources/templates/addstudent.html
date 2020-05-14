@@ -14,11 +14,19 @@
 <!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <!--	 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css"/>
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
 </head>
 <body>
- 
- 
-   <div class="container col-md-12"  style="border:thin" >
+
+
+<div th:replace="fragments/adminheader :: adminheader"></div>
+
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
    <form  th:action="@{/admin/addstudent}" th:object="${Newstudent}" method="post"  class="form-horizontal">
 			<fieldset >
 				<legend>Student Personal Detail</legend>
@@ -114,7 +122,11 @@
 
 			</fieldset>
 			</form>
-			</div> 
+			</div>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('#multiple-checkboxes').multiselect();

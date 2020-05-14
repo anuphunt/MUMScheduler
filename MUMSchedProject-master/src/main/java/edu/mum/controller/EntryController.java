@@ -32,7 +32,7 @@ public class EntryController {
 	public RedirectView saveEntry(@ModelAttribute("entry") Entry newEntry){
 		
 		entryService.saveEntry(newEntry);
-		return new RedirectView("/admin/addEntry");
+		return new RedirectView("/allEntry");
 	}
 	
 	@RequestMapping(value= {"/deleteEntry"},method=RequestMethod.POST)
