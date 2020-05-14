@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
 
 <!--<script-->
 <!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
@@ -20,8 +22,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div th:replace="fragments/adminheader :: adminheader"></div>
+
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
 		<div class="mainContainer">
-							<form action="/admin/addSectionForm">
+
+							<form action="/admin/listSections"s>
 					        	<input class="btn btn-primary" type="submit" value="Add Sections" />					        	
 					        </form>
 			<table class="table">
@@ -58,6 +68,10 @@
 			       		 </td>    
 			    	</tr>	
 		    	</table>
-</div>	
+</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>

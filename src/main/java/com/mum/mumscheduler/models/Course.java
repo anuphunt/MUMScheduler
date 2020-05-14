@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -11,6 +13,7 @@ import java.util.List;
 public class Course {
     @Id
     private String courseId;
+   @NotNull
     private String courseName;
     private String prerequisites;
 
