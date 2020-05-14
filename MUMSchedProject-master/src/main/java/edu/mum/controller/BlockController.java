@@ -102,10 +102,19 @@ public class BlockController {
 	public String /*@ResponseBody RedirectView*/ blockList(@RequestParam Long id, Model model){
 		Entry entry = entryService.getEntry(id);
 		List<Block> blocks = entry.getBlocks();
-		
+
 		model.addAttribute("blocks", blocks);
-		
+
 		model.addAttribute("entry", entry);
+		return "blockList";
+	}
+
+	@GetMapping({"/blockList"})
+	public String showAllBlocks(Model model){
+
+		model.addAttribute("entry", entryService.getEntry(1L));
+		model.addAttribute("blocks", blockService.getAllBlock());
+
 		return "blockList";
 	}
 	
