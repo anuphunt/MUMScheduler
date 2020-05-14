@@ -19,10 +19,10 @@
         <div class="topnav">
 
 
-            <a th:href="@{/studentprofile/{username}(student=${student.userprofile.id})}">Home</a>
-            <a th:href="@{/studentprofile/details/{username}(username=${student.userprofile.id})}">Profile</a>
-            <a th:href = "@{/student/register}">Register For Courses</a>
-            <a href = "#" th:href="@{/logout}">Logout</a>
+            <a th:href="@{/studentprofile/{id}(student=${student.userprofile.id})}">Home</a>
+            <a th:href="@{/studentprofile/details/{id}(username=${student.userprofile.id})}">Profile</a>
+            <a th:href="@{/logout}">Logout</a>
+
         </div>
 
     </nav>
