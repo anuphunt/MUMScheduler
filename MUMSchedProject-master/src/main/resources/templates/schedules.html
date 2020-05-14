@@ -1,56 +1,53 @@
-
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Mum Schedule</title>
+    <title>Mum Schedule</title>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<!--<link rel="stylesheet"-->
-<!--	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
-<!--<link rel="stylesheet"-->
-<!--	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />-->
-<!--<script-->
-<!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-<!--<script-->
-<!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <meta charset="utf-8"/>
+    <link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+    <script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-	<div class="container">
-		<table class="table table-hover table-inverse">
-			<h4>
-				<a href="/admin/schedule/create"><i class="fa fa-hand-o-up">CreateSchedule</i></a>
-			</h4>
-			<br />
-			<h4>
-				Schedule <small><i class="ace-icon fa fa-angle-double-right">List</i>
-				</small>
-			</h4>
-			<br />
 
-			<tr>
-				<th>Entry</th>
-				<th>Schedule Generated At</th>
-				<th>Status</th>
-				<th>Action</th>
+<div th:replace="fragments/adminheader :: adminheader"></div>
+<div class="app-main">
+    <div th:replace="fragments/adminsidebar::adminsidebar"></div>
 
-			</tr>
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-hover table-inverse">
+                        <h4>
+                            <a href="/admin/schedule/create"><i class="fa fa-hand-o-up">Create Schedule</i></a>
+                        </h4>
+                        <br/>
+                        <tr>
+                            <th>Entry</th>
+                            <th>Schedule Generated At</th>
+                            <th>Status</th>
+                            <th>Action</th>
 
-			<tr th:each="schedule : ${schedule}">
-				<td th:text="${schedule.entry.entryMonth}">EntryMonth</td>
-				<td th:text="${schedule.generatedDate}">GeneratedDate</td>
-				<td th:text="${schedule.status}">Status</td>
-				<td><a th:href="@{|/admin/schedule/view/${schedule.id}}"><span
-						class="glyphicon glyphicon-calendar"></span></a></td>
-				<td><a th:href="@{|/admin/schedule/edit/${schedule.id}}"><span
-						class="glyphicon glyphicon-pencil"></span></a></td>
-				<td><a th:href="@{|/admin/schedule/delete/${schedule.id}}"><span
-						class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
 
-			</tr>
+                        <tr th:each="schedule : ${schedule}">
+                            <td th:text="${schedule.entry.entryMonth}">EntryMonth</td>
+                            <td th:text="${schedule.generatedDate}">GeneratedDate</td>
+                            <td th:text="${schedule.status}">Status</td>
+                            <td><a th:href="@{|/admin/schedule/view/${schedule.id}}"><span
+                                    class="glyphicon glyphicon-calendar"></span></a></td>
+                            <td><a th:href="@{|/admin/schedule/edit/${schedule.id}}"><span
+                                    class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a th:href="@{|/admin/schedule/delete/${schedule.id}}"><span
+                                    class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-		</table>
-	</div>
+</div>
 </body>
 </html>
