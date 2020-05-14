@@ -76,13 +76,42 @@ public class SectionController {
 			
 		return "sectionList";
 	}
+
+//	@RequestMapping(value= {"/listSections"},method=RequestMethod.POST)
+//	public String listSection(@RequestParam String sectionCode, @RequestParam String course,
+//							   @RequestParam String faculty, @RequestParam String blockMonth,  @RequestParam int limitCapacity, Model model){
+//
+//		Block block = blockService.getBlock(blockMonth);
+//		Faculty facultyAssigned = facultyService.getFacultyByName(faculty);
+//		Course courseOffered = courseService.getCourseByName(course);
+//
+//		Section newSection = new Section();
+//		newSection.setBlock(block);
+//		newSection.setCourse(courseOffered);
+//		newSection.setFaculty(facultyAssigned);
+//
+//		newSection.setSectionCode(sectionCode);
+//		newSection.setLimitCapacity(limitCapacity);
+//
+//		block.getSections().add(newSection);
+//
+//		blockService.saveBlock(block, block.getEntry().getId());
+//		model.addAttribute("block_id", block.getId());
+//		model.addAttribute("sections", block.getSections());
+//
+//		return "sectionList";
+//	}
+
+
+
+
 	
 	@RequestMapping(value= {"/listSections"}, method=RequestMethod.POST)
-	public String listSectioin(@RequestParam String block_id, Model model){	
+	public String listSection(@RequestParam String block_id, Model model){
 		Block block = blockService.getBlockById(Long.parseLong(block_id));
 		List<Section> sections = block.getSections();
 		model.addAttribute("block_id", block_id);
-		model.addAttribute("sections", sections);	
+		model.addAttribute("sections", sections);
 		return "sectionList";
 	}
 	
