@@ -36,8 +36,6 @@ public class Block {
 	public Block(){
 		sections = new ArrayList<Section>();
 	}
-	
-	
 
 	public long getId() {
 		return id;

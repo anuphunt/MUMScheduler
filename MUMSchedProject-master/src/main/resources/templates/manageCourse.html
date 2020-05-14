@@ -10,11 +10,25 @@
 <!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 <!--<script-->
 <!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
 </head>
 <body>
+<div th:replace="fragments/adminheader :: adminheader"></div>
 
-	<div class="container">
-	<a th:href="@{/admin/course/add}">Add Course</a>
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
+				<div class="container" id="homeDiv">
+					<a th:href="@{/admin/course/add}" class="btn btn-primary">Add Course</a>
+					<div class="jumbotran text-center"></div>
+					<h2>Welcome to Manage Courses</h2>
+					<hr>
+				</div>
+
+
 		<h2>Course Table</h2>
 		<div class="table-responsive ">
 			<table class="table table-hover">
@@ -23,6 +37,7 @@
 					<th>Course Name</th>
 					<th>Course Code</th>
 					<th>Pre_Request_Course</th>
+					<th colspan="2"> Actions </th>
 				</tr>
 				<tr th:each="course :${courses}">
 					<td th:text="${course.id}"></td>
@@ -38,9 +53,19 @@
 							class="glyphicon glyphicon-trash"></span></a></td>
 					<td><a th:href="@{|/admin/course/update/${course.id}}"> <span
 							class="glyphicon glyphicon-pencil"></span></a></td>
+					<td><a th:href="@{/admin/course/update/{id}(id=${course.Id})}" class="btn btn-info btn-sm">
+						Update
+					</a></td>
+					<td><a th:href="@{/admin/course/delete/{id}(id=${course.Id})}"
+						   class="btn btn-danger btn-sm"
+						   onclick="if (!(confirm('Are you sure you want to delete this course?'))) return false">
+						Delete</a></td>
 				</tr>
 			</table>
 		</div>
 	</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>

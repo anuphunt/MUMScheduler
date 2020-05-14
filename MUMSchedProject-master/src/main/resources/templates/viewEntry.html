@@ -19,9 +19,18 @@
 <meta charset="ISO-8859-1" />
 <title>view Entry</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
 
 </head>
 <body>
+<div th:replace="fragments/adminheader :: adminheader"></div>
+
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
 
 <div class="mainContainer">
 	<button class="btn btn-primary" onclick="location.href='/admin/addEntry'">Add Entry</button>
@@ -33,6 +42,8 @@
 				    <th>Number of FPP-OPT</th>
 				    <th>Number of FPP-OPT</th>
 				    <th>Number of US</th>
+					<th colspan="2">Actions</th>
+
 			</tr>	    
 			<tr th:each="entry : ${listOfEntries}">	
 			        <td th:text="${entry.entryMonth}">1 </td>
@@ -42,34 +53,21 @@
 			        <td th:text="${entry.numOfFppOpt}">Text ...</td>
 			        <td th:text="${entry.numOfMppOpt}">Text ...</td>
 			        <td th:text="${entry.numOfUSstudents}">Text ...</td>
-			        
-		        <td>   
-		        	<div class="buttonDiv">   
-				        <form method="post" action="/admin/deleteEntry">
-				        	<input name="id"  type="hidden" th:value="${entry.id}" />
-				        	<input class="btn btn-danger" type="submit" value="Delete" />
-				        </form>
-				     </div>   
-			    </td>
-			    <td>
-			    	<div class="buttonDiv">
-				        <form method="post" action="/admin/findEntry">
-				        	<input name="id"  type="hidden" th:value="${entry.id}" />
-				        	<input class="btn btn-primary" type="submit" value="Update" />
-				        </form>
-				     </div>
-			    </td>
-			    <td>
-			    	<div class="buttonDiv">
-						<form method="post" action="/admin/blockList">
-							<input name="id"  type="hidden" th:value="${entry.id}" />
-				        	<input class="btn btn-primary" type="submit" value="Blocks" />
-				        </form>
-				    </div>    
-				</td>
-		   </tr>
-	</table>	  
+				<td><a th:href="@{/admin/updateEntry/{id}(id=${entry.id})}" class="btn btn-info btn-sm">
+					Update
+				</a></td>
+				<td><a th:href="@{/admin/deleteEntry/{id}(id=${entry.id})}"
+					   class="btn btn-danger btn-sm"
+					   onclick="if (!(confirm('Are you sure you want to delete this entry?'))) return false">
+					Delete</a></td>
+			</tr>
+	</table>
 </div>
+			</div>
+		</div>
+	</div>
+</div>
+
  		
 </body>
 </html>

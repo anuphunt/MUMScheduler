@@ -12,14 +12,24 @@
 <!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 <!--<script-->
 <!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
 </head>
+
 <body>
- 
-   <div class="container col-md-12" >
+<div th:replace="fragments/adminheader :: adminheader"></div>
+
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
+
+				<div class="addForm">
    <a th:href="@{/admin/course/add}">Add Course</a>
    <!-- th:action="@{admin/course/add}" -->
-   
-   <form  th:object="${newCourse}" method="post"  class="form-horizontal">
+
+   <form  th:object="${newCourse}" method="post"  class="form-control">
 
 			<fieldset >
 				<legend>Course Detail</legend>
@@ -30,31 +40,31 @@
 						
 					</ul> 
 					</div>
-			     <input type="hidden"  th:field="*{id}" />
+			     <input type="hidden"  th:field="*{id}" class="form-control"/>
 				<table class="table">
 					<tr>
 						<td><label for="courseCode">Course Code : </label></td>
-						<td><input id="courseCode" class="form-control mb-2 mb-sm-0"
-							type="text" th:field="*{courseCode}" /></td>
+						<td><input id="courseCode"
+							type="text" th:field="*{courseCode}" class="form-control"/></td>
 
 						<td><label for="courseName">Course Name : </label></td>
 						<td><input id="courseName" class="form-control mb-2 mb-sm-0"
 							type="text" th:field="*{courseName}" /></td>
 						
 						<td><label for="courseDesc">Course Description : </label></td>
-						<td><input id="courseDesc" class="form-control mb-2 mb-sm-0"
+						<td><input id="courseDesc"
 							type="text" th:field="*{courseDesc}" /></td>
 					 
 					</tr>
 					<tr>
 						<td><label for="prerequisite">Prerequisite Course :</label></td>
 						<td><select th:field="*{prerequisite}" class="selectpicker"
-							multiple="multiple">
+							multiple="multiple" >
 								<option th:each="course: ${courseList}" th:value="${course.id}"
 									th:text="${course.courseName}"></option>
 						</select></td>
 						<td><label for="courseArea">Course Area :</label></td>
-						<td><select th:field="*{courseArea}" class="selectpicker">
+						<td><select th:field="*{courseArea}" class="selectpicker" >
 								<option th:each="area : ${areaList}" th:value="${area.id}"
 									th:text="${area.specalization}"></option>
 						</select></td>
@@ -66,7 +76,7 @@
 				<div class="row">
 							<div class="col-xs-6 col-sm-6 col-md-6">
 								<input type="submit" class="btn btn-lg btn-primary btn-block"
-									value="Save" />
+									value="Save"  />
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6"></div>
 
@@ -75,7 +85,9 @@
 
 			</fieldset>
 			</form>
-			</div> 
+				</div> </div>
+		</div>
+	</div></div>
 
 <!--<script src="/jquery/jquery-3.2.1.min.js"></script>    -->
 <!--<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>-->
