@@ -7,7 +7,8 @@
 <body>
     <div class="app-sidebar sidebar-shadow" th:fragment="adminsidebar">
         <div class="app-header__logo">
-            <div class="logo-src"></div>
+            <a class="logo-src" href = "#" th:href="@{/admin/dashboard}">
+            </a>
             <div class="header__pane ml-auto">
                 <div>
                     <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -102,6 +103,20 @@
                         <a href="#" th:href = "@{/admin/allEntry}" class="mm-active">
                             <i class="metismenu-icon pe-7s-albums"></i>
                             View all entries
+                        </a>
+                    </li>
+
+                    <li class="app-sidebar__heading">Section</li>
+                    <li>
+                        <a href="#" th:href ="@{/admin/listSections}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-eyedropper"></i>
+                            Add new section
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" th:href = "@{/admin/allEntry}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-albums"></i>
+                            View all sections
                         </a>
                     </li>
                 </ul>
