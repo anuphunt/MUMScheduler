@@ -17,9 +17,6 @@ import edu.mum.domain.Entry;
 import edu.mum.service.BlockService;
 import edu.mum.service.EntryService;
 
-
-
-
 @Controller
 @RequestMapping("/admin")
 public class BlockController {
