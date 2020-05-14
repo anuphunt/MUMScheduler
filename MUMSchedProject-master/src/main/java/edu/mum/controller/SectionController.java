@@ -3,6 +3,7 @@ package edu.mum.controller;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,17 +102,18 @@ public class SectionController {
 //
 //		return "sectionList";
 //	}
-
-
-
-
 	
-	@RequestMapping(value= {"/listSections"}, method=RequestMethod.POST)
-	public String listSection(@RequestParam String block_id, Model model){
-		Block block = blockService.getBlockById(Long.parseLong(block_id));
-		List<Section> sections = block.getSections();
-		model.addAttribute("block_id", block_id);
-		model.addAttribute("sections", sections);
+	@RequestMapping(value= {"/listSections"}, method=RequestMethod.GET)
+	public String listSection(Model model){
+
+
+		List<Section> sections = new ArrayList<>();
+		List<Block> blocks = blockService.getAllBlock();
+
+		for(Block b: blocks){
+			sections.addAll(b.getSections());
+		}
+		model.addAttribute("sections", sections);	
 		return "sectionList";
 	}
 	
