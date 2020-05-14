@@ -12,9 +12,17 @@
 <!--	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 <!--<script-->
 <!--	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
 </head>
 <body>
- 
+<div th:replace="fragments/adminheader :: adminheader"></div>
+
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
  
    <div class="container col-md-12" >
    <form  th:action="@{/admin/course/update}" th:object="${editedCourse}" method="post"  class="form-horizontal">
@@ -74,7 +82,10 @@
 			</form>
 			</div> 
 
-<div th:replace="fragments/footer :: footer"></div>
+			</div>
+		</div>
+	</div>
+</div>
 <script src="/jquery/jquery-3.2.1.min.js"></script>    
 <script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="/js/getrequest.js"></script>

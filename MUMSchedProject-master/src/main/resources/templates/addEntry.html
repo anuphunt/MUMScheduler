@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<script
+	<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+	<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
+<!--<script></script>-->
 <!--  src="https://code.jquery.com/jquery-3.2.1.js" th:integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" th:crossorigin="anonymous"></script>-->
 <meta charset="ISO-8859-1" />
 
@@ -18,11 +20,18 @@
 <!--<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />-->
 </head>
 <body>
-	
+<div th:replace="fragments/adminheader :: adminheader"></div>
+
+<div class="app-main">
+	<div th:replace="fragments/adminsidebar::adminsidebar"></div>
+	<div class="app-main__outer">
+		<div class="app-main__inner">
+			<div class="row">
+
 			<div class="addForm">
 			<h1>Add Entry</h1>
 			<hr />
-						<form method="post" action="/admin/addEntry" modelAttribute="entry">
+						<form method="post" action="/admin/addEntry" modelAttribute="entry" class="form-control">
 						<div class="form-group mainContainer1">
 							<label for="entryMonth">Entry Month</label>
 							
@@ -30,13 +39,13 @@
 							<br></br>
 							
 							<label for="numOfMpp">Number of MPP</label>
-							<input type="number" name="numOfMpp" class="form-control" placeholder="Number of Fpp" />
+							<input type="number" name="numOfMpp" class="form-control" placeholder="Number of MPP" />
 							<br></br>
 							
 							<label for="numOfFpp">Number of FPP</label>
-							<input type="number" name="numOfFpp" class="form-control" placeholder="Number of MPP" />
+							<input type="number" name="numOfFpp" class="form-control" placeholder="Number of FPP" />
 							<br></br>
-							
+
 							<label for="numOfFppOpt">Number of FPP OPT Students</label>
 							<input type="number" name="numOfFppOpt" class="form-control" placeholder="Number of Fpp OPT" />
 							<br></br>
@@ -51,6 +60,12 @@
 							<button class="btn btn-primary" type="submit">Save</button>
 						</div>	
 						</form> 
-				</div>		
+				</div>
+	</div>
+		</div>
+	</div>
+</div>
+
+</div>
 </body>
 </html>
