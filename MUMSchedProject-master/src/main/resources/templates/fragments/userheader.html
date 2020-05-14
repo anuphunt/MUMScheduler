@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<header  th:fragment="userheader">
+    <div class="container">
+        <div class="logo">
+            <img src="../static/images/logo-f.png" alt="logo" media="screen" th:src="@{/images/logo-f.png}">
+        </div>
+        <div class="email">
+            <i class="glyphicon glyphicon-envelope"></i>
+            <span>info@mum.edu.np</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="topnav">
+
+
+            <a th:href="@{/studentprofile/{username}(student=${student.userprofile.id})}">Home</a>
+            <a th:href="@{/studentprofile/details/{username}(username=${student.userprofile.id})}">Profile</a>
+            <a href="@{/logout}">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+</header>
+</body>
+</html>
