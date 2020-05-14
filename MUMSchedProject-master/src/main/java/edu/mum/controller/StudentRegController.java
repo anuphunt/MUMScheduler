@@ -78,8 +78,6 @@ public class StudentRegController {
 				
 	//	model.addAttribute("blocks", schedule.getEntry().getBlocks());
 		//model.addAttribute("entry",schedule.getEntry());
-	
-			
 	   	    return "viewSchedule";
 	    }
 	
