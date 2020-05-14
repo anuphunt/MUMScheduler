@@ -1,43 +1,52 @@
-
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
+<link href="../static/css/main.css" rel="stylesheet" media="screen" th:href="@{/css/main.css}">
+<script src="../static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
+
 <head>
-<style>
-.entrys {
-	width: 50%;
-}
-</style>
-<title>Mum Schedule</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        .entrys {
+            width: 50%;
+        }
+    </style>
+    <title>Mum Schedule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-	<div class="container">
-		<h4>
-			<a href="/admin/schedule/list"><i class="fa fa-hand-o-up">Schedule
-					List</i></a>
-		</h4>
-		<br />
-		<h4>
-			Schedule <small> <i class="ace-icon fa fa-angle-double-right">Create</i>
-			</small>
-		</h4>
-		<hr />
-		<div class="well form-group">
-			<form action="#" th:action="@{/admin/schedule/create}" method="post">
-				<div class="entrys">
-					Select Entry <br /> <br /> <select class="form-control"
-						name="entry">
+<div th:replace="fragments/adminheader :: adminheader"></div>
+<div class="app-main">
+    <div th:replace="fragments/adminsidebar::adminsidebar"></div>
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            <div class="row">
+                <div class="container">
+                    <br/>
+                    <h4>
+                        Create Schedule
+                    </h4>
+                    <hr/>
+                    <div class="well form-group">
+                        <form action="#" th:action="@{/admin/schedule/create}" method="post">
+                            <div class="entrys">
+                                Select Entry <br/> <br/> <select class="form-control"
+                                                                 name="entry">
 
-						<option th:each="entry : ${entries}"
-							th:value="${entry.entryMonth}" th:text="${entry.entryMonth}">Option</option>
+                                <option th:each="entry : ${entries}"
+                                        th:value="${entry.entryMonth}" th:text="${entry.entryMonth}">Option
+                                </option>
 
-					</select>
-				</div>
-				<br /> <br /> <input class="btn btn-primary" type="submit"
-					value="CreateSchedule" />
-			</form>
-		</div>
-	</div>
+                            </select>
+                            </div>
+                            <br/> <br/> <input class="btn btn-primary" type="submit"
+                                               value="CreateSchedule"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 
